@@ -1312,6 +1312,111 @@
             color: var(--main-color);
         }
 
+        /* --- TESTIMONIALS & YORUM EKLEME MODAL --- */
+        .testimonials-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto 4rem auto;
+        }
+        .btn-review-trigger {
+            background: rgba(0, 229, 255, 0.08);
+            border: 2px solid var(--main-color);
+            color: var(--main-color);
+            padding: 1.1rem 2.6rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+            border-radius: 4rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            box-shadow: 0 0 15px rgba(0, 229, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        .btn-review-trigger:hover {
+            background: var(--main-color);
+            color: #080808;
+            box-shadow: 0 0 25px rgba(0, 229, 255, 0.6);
+            transform: translateY(-3px);
+        }
+        .review-modal-content {
+            max-width: 580px;
+        }
+        .review-input-group {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.2rem;
+        }
+        .review-input-group input {
+            flex: 1;
+            padding: 1.3rem;
+            font-size: 1.45rem;
+            color: var(--text-color);
+            background: rgba(22, 27, 34, 0.85);
+            border: 1px solid rgba(0, 229, 255, 0.2);
+            border-radius: 0.8rem;
+            outline: none;
+            transition: 0.3s ease;
+        }
+        .review-input-group input:focus,
+        .review-modal-content textarea:focus {
+            border-color: var(--main-color);
+            box-shadow: 0 0 12px rgba(0, 229, 255, 0.3);
+        }
+        .review-rating-box {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            background: rgba(22, 27, 34, 0.6);
+            padding: 1rem 1.5rem;
+            border-radius: 0.8rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .star-rating-select {
+            display: flex;
+            gap: 0.5rem;
+            font-size: 2.4rem;
+            color: #4b5563;
+            cursor: pointer;
+        }
+        .star-rating-select i {
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+        .star-rating-select i.active,
+        .star-rating-select i:hover {
+            color: #FFB800;
+        }
+        .star-rating-select i:hover {
+            transform: scale(1.2);
+        }
+        .review-modal-content textarea {
+            width: 100%;
+            padding: 1.4rem;
+            font-size: 1.45rem;
+            color: var(--text-color);
+            background: rgba(22, 27, 34, 0.85);
+            border: 1px solid rgba(0, 229, 255, 0.2);
+            border-radius: 0.8rem;
+            outline: none;
+            resize: none;
+            transition: 0.3s ease;
+        }
+        @media (max-width: 768px) {
+            .testimonials-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .review-input-group {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
         /* --- FLOATING WHATSAPP BUTTON --- */
         .floating-whatsapp {
             position: fixed;
@@ -1776,8 +1881,17 @@ Ayrıca karmaşık ağ kabinlerini ve fiber altyapılarını profesyonel standar
 
     <!-- --- MÜŞTERİ YORUMLARI & REFERANSLAR (SOCIAL PROOF) --- -->
     <section class="testimonials" id="testimonials">
-        <h2 class="heading">Müşteri <span class="gradient-text">Değerlendirmeleri</span></h2>
-        <div class="testimonials-grid">
+        <div class="testimonials-header">
+            <div>
+                <h2 class="heading" style="margin-bottom: 0.5rem; text-align: left;">Müşteri <span class="gradient-text">Değerlendirmeleri</span></h2>
+                <p style="font-size: 1.4rem; color: #94a3b8;">Gerçek müşteri deneyimleri ve tamamlanan projeler</p>
+            </div>
+            <button class="btn btn-review-trigger" id="open-review-modal">
+                <i class='bx bx-edit-alt'></i> Yorum Yaz
+            </button>
+        </div>
+
+        <div class="testimonials-grid" id="testimonials-grid">
             <div class="testimonial-card reveal-on-scroll">
                 <div class="stars">
                     <i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i>
@@ -1819,6 +1933,20 @@ Ayrıca karmaşık ağ kabinlerini ve fiber altyapılarını profesyonel standar
                     </div>
                 </div>
             </div>
+
+            <div class="testimonial-card reveal-on-scroll">
+                <div class="stars">
+                    <i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i>
+                </div>
+                <p class="testimonial-text">"İş yerimizin kamera sistemi ve network altyapısını sorunsuz teslim etti. İlgi ve profesyonel yaklaşımı için çok teşekkür ederiz."</p>
+                <div class="client-profile">
+                    <div class="client-avatar">MA</div>
+                    <div class="client-info">
+                        <h4>Mert Aydın</h4>
+                        <span>Restoran Müdürü - IP Kamera & Ağ</span>
+                    </div>
+                </div>    
+            </div>   
         </div>
 
         <!-- GOOGLE İŞLETME PROFİLİ DOĞRULAMA ROZETİ -->
@@ -1832,6 +1960,48 @@ Ayrıca karmaşık ağ kabinlerini ve fiber altyapılarını profesyonel standar
             </a>
         </div>
     </section>
+
+    <!-- MÜŞTERİ YORUMU EKLEME MODAL (POPUP) -->
+    <div class="modal-overlay" id="review-modal-overlay">
+        <div class="modal-content review-modal-content">
+            <span class="modal-close" id="close-review-modal">&times;</span>
+            <h3 class="gradient-text" style="font-size: 2.4rem; font-weight: 700; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.8rem;">
+                <i class='bx bx-message-square-edit'></i> Yorumunuzu Ekleyin
+            </h3>
+            <p style="font-size: 1.4rem; color: #94a3b8; margin-bottom: 2rem;">
+                Web tasarım, kamera kurulumu veya ağ altyapısı deneyiminizi paylaşın. Yorumunuz incelendikten sonra sitede yayınlanacaktır.
+            </p>
+
+            <form id="review-form">
+                <div class="review-input-group">
+                    <input type="text" id="review-name" placeholder="Adınız Soyadınız *" required>
+                    <input type="text" id="review-role" placeholder="Göreviniz / Hizmet (Örn: İşletme Sahibi - CCTV)" required>
+                </div>
+
+                <div class="review-rating-box">
+                    <label style="font-size: 1.4rem; color: #cbd5e1; font-weight: 600;">Hizmet Puanınız:</label>
+                    <div class="star-rating-select" id="star-rating-select">
+                        <i class='bx bxs-star active' data-val="1"></i>
+                        <i class='bx bxs-star active' data-val="2"></i>
+                        <i class='bx bxs-star active' data-val="3"></i>
+                        <i class='bx bxs-star active' data-val="4"></i>
+                        <i class='bx bxs-star active' data-val="5"></i>
+                    </div>
+                    <input type="hidden" id="review-rating-val" value="5">
+                </div>
+
+                <textarea id="review-comment" rows="4" placeholder="Deneyiminizi ve görüşlerinizi buraya yazın... *" required></textarea>
+
+                <div id="review-status-msg" style="display: none; font-size: 1.4rem; padding: 1.2rem; border-radius: 0.8rem; margin-top: 1.5rem; text-align: center;"></div>
+
+                <div style="display: flex; justify-content: flex-end; margin-top: 2rem;">
+                    <button type="submit" class="btn" id="review-submit-btn" style="width: 100%;">
+                        <i class='bx bx-send'></i> Yorumu Gönder
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
 
     <section class="contact" id="contact">
         <h2 class="heading">Bana <span class="gradient-text">Ulaşın</span></h2>
@@ -2372,6 +2542,172 @@ Ayrıca karmaşık ağ kabinlerini ve fiber altyapılarını profesyonel standar
             });
 
             updateCalculatorUI();
+
+            // ==========================================
+            // 10. GOOGLE SHEETS DİNAMİK YORUM YÖNETİMİ & MODAL
+            // ==========================================
+            // Google Apps Script Web App Dağıtım URL'si:
+            const GOOGLE_SHEET_API_URL = "https://script.google.com/macros/s/AKfycbw2Cx1oD10eXb91nTA_TU29JG1PTCEJ_vkRhBq24ntgiHJc8rhmSXQqystnw3zqHLbI/exec"; 
+
+            const openReviewBtn = document.getElementById('open-review-modal');
+            const closeReviewBtn = document.getElementById('close-review-modal');
+            const reviewModal = document.getElementById('review-modal-overlay');
+            const reviewForm = document.getElementById('review-form');
+            const starIcons = document.querySelectorAll('#star-rating-select i');
+            const ratingInput = document.getElementById('review-rating-val');
+            const reviewStatusMsg = document.getElementById('review-status-msg');
+            const reviewSubmitBtn = document.getElementById('review-submit-btn');
+            const testimonialsGrid = document.getElementById('testimonials-grid');
+
+            // Modal Aç / Kapat
+            if (openReviewBtn && reviewModal) {
+                openReviewBtn.addEventListener('click', () => {
+                    reviewModal.style.display = 'flex';
+                    if (reviewStatusMsg) reviewStatusMsg.style.display = 'none';
+                });
+            }
+            if (closeReviewBtn && reviewModal) {
+                closeReviewBtn.addEventListener('click', () => {
+                    reviewModal.style.display = 'none';
+                });
+            }
+            window.addEventListener('click', (e) => {
+                if (e.target === reviewModal) reviewModal.style.display = 'none';
+            });
+
+            // İnteraktif Yıldız Puanı Seçimi
+            starIcons.forEach(star => {
+                star.addEventListener('click', () => {
+                    const rating = parseInt(star.getAttribute('data-val'));
+                    if (ratingInput) ratingInput.value = rating;
+                    starIcons.forEach(s => {
+                        const sVal = parseInt(s.getAttribute('data-val'));
+                        if (sVal <= rating) {
+                            s.classList.add('active');
+                            s.style.color = '#FFB800';
+                        } else {
+                            s.classList.remove('active');
+                            s.style.color = '#4b5563';
+                        }
+                    });
+                });
+            });
+
+            // Yorum Gönderme (Form Submit)
+            if (reviewForm) {
+                reviewForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    const name = document.getElementById('review-name').value.trim();
+                    const role = document.getElementById('review-role').value.trim();
+                    const comment = document.getElementById('review-comment').value.trim();
+                    const rating = parseInt(ratingInput ? ratingInput.value : 5);
+
+                    if (!name || !comment) return;
+
+                    if (reviewSubmitBtn) {
+                        reviewSubmitBtn.disabled = true;
+                        reviewSubmitBtn.innerHTML = "<i class='bx bx-loader-alt bx-spin'></i> Gönderiliyor...";
+                    }
+
+                    if (GOOGLE_SHEET_API_URL && GOOGLE_SHEET_API_URL.trim() !== "") {
+                        try {
+                            await fetch(GOOGLE_SHEET_API_URL, {
+                                method: 'POST',
+                                mode: 'no-cors',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({ name, role, rating, comment })
+                            });
+
+                            if (reviewStatusMsg) {
+                                reviewStatusMsg.style.display = 'block';
+                                reviewStatusMsg.style.background = 'rgba(16, 185, 129, 0.15)';
+                                reviewStatusMsg.style.border = '1px solid #10b981';
+                                reviewStatusMsg.style.color = '#34d399';
+                                reviewStatusMsg.innerHTML = "🎉 <strong>Teşekkürler!</strong> Yorumunuz alındı. İnceleme sonrası onaylanıp yayınlanacaktır.";
+                            }
+                            reviewForm.reset();
+                            setTimeout(() => {
+                                if (reviewModal) reviewModal.style.display = 'none';
+                                if (reviewStatusMsg) reviewStatusMsg.style.display = 'none';
+                                if (reviewSubmitBtn) {
+                                    reviewSubmitBtn.disabled = false;
+                                    reviewSubmitBtn.innerHTML = "<i class='bx bx-send'></i> Yorumu Gönder";
+                                }
+                            }, 3000);
+                        } catch (err) {
+                            if (reviewStatusMsg) {
+                                reviewStatusMsg.style.display = 'block';
+                                reviewStatusMsg.style.background = 'rgba(239, 68, 68, 0.15)';
+                                reviewStatusMsg.style.border = '1px solid #ef4444';
+                                reviewStatusMsg.style.color = '#f87171';
+                                reviewStatusMsg.innerHTML = "⚠️ Gönderim sırasında bir hata oluştu. Lütfen tekrar deneyin.";
+                            }
+                            if (reviewSubmitBtn) {
+                                reviewSubmitBtn.disabled = false;
+                                reviewSubmitBtn.innerHTML = "<i class='bx bx-send'></i> Yorumu Gönder";
+                            }
+                        }
+                    } else {
+                        // Henüz API URL'si bağlanmamışsa bilgilendirici demo mesajı
+                        if (reviewStatusMsg) {
+                            reviewStatusMsg.style.display = 'block';
+                            reviewStatusMsg.style.background = 'rgba(0, 229, 255, 0.15)';
+                            reviewStatusMsg.style.border = '1px solid var(--main-color)';
+                            reviewStatusMsg.style.color = '#00e5ff';
+                            reviewStatusMsg.innerHTML = "ℹ️ <strong>Demo Bildirimi:</strong> Form sorunsuz çalışıyor! Google E-Tablo URL'nizi bağladığınızda yorumlar otomatik tablonuza düşecektir.";
+                        }
+                        reviewForm.reset();
+                        setTimeout(() => {
+                            if (reviewModal) reviewModal.style.display = 'none';
+                            if (reviewStatusMsg) reviewStatusMsg.style.display = 'none';
+                            if (reviewSubmitBtn) {
+                                reviewSubmitBtn.disabled = false;
+                                reviewSubmitBtn.innerHTML = "<i class='bx bx-send'></i> Yorumu Gönder";
+                            }
+                        }, 3000);
+                    }
+                });
+            }
+
+            // Google Sheets'ten Onaylı Yorumları Dinamik Yükle (GET)
+            async function loadApprovedReviews() {
+                if (!GOOGLE_SHEET_API_URL || GOOGLE_SHEET_API_URL.trim() === "" || !testimonialsGrid) return;
+                try {
+                    const res = await fetch(GOOGLE_SHEET_API_URL);
+                    const json = await res.json();
+                    if (json.status === "success" && Array.isArray(json.data) && json.data.length > 0) {
+                        json.data.forEach(item => {
+                            const initials = (item.name || "M").split(" ").map(n => n[0]).join("").substring(0, 2).toUpperCase();
+                            const ratingNum = parseInt(item.rating) || 5;
+                            let starsHtml = "";
+                            for (let i = 0; i < 5; i++) {
+                                starsHtml += `<i class='bx ${i < ratingNum ? "bxs-star" : "bx-star"}'></i>`;
+                            }
+
+                            const card = document.createElement('div');
+                            card.className = 'testimonial-card reveal-on-scroll active';
+                            card.innerHTML = `
+                                <div class="stars">
+                                    ${starsHtml}
+                                </div>
+                                <p class="testimonial-text">"${item.comment}"</p>
+                                <div class="client-profile">
+                                    <div class="client-avatar">${initials}</div>
+                                    <div class="client-info">
+                                        <h4>${item.name}</h4>
+                                        <span>${item.role || "Doğrulanmış Müşteri"}</span>
+                                    </div>
+                                </div>
+                            `;
+                            testimonialsGrid.insertBefore(card, testimonialsGrid.firstChild);
+                        });
+                    }
+                } catch (e) {
+                    console.log("Dinamik yorum yükleme:", e);
+                }
+            }
+
+            loadApprovedReviews();
         });
     </script>
 </body>
