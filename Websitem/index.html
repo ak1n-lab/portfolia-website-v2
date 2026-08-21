@@ -310,7 +310,7 @@
             padding-top: 12rem;
         }
         .home-content {
-            max-width: 620px;
+            max-width: 680px;
         }
         .hero-badge-tag {
             display: inline-flex;
@@ -336,11 +336,14 @@
             0%, 100% { opacity: 1; transform: scale(1); filter: drop-shadow(0 0 6px #00ff88); }
             50% { opacity: 0.35; transform: scale(0.8); }
         }
-        .home-content h1{
-            font-size: 5.8rem;
+        .home-content h1 {
+            font-size: clamp(3.2rem, 4.4vw, 5.0rem);
             font-weight: 800;
-            line-height: 1.2;
+            line-height: 1.25;
             letter-spacing: -0.5px;
+        }
+        .home-content h1 .gradient-text {
+            white-space: nowrap;
         }
         .home-content h3{
             font-size: 3.2rem;
