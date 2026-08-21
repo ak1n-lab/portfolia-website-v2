@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Akın Topal | Web Geliştirici Portfolyosu</title>
+    <title>Akın Topal | Web Tasarım & Güvenlik Sistemleri Uzmanı</title>
+    <meta name="description" content="Akın Topal - Profesyonel Web Tasarımı, Güvenlik Kamerası (CCTV) Kurulumu, Ağ ve Yapısal Kablolama Hizmetleri.">
+    <meta name="keywords" content="web tasarım, güvenlik kamerası kurulumu, cctv, ağ altyapısı, yapısal kablolama, akın topal">
     
     <link rel="icon" type="image/png" href="akintopal/A.t1.png">
     
@@ -12,6 +14,29 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- Google Zengin Sonuç & Yerel İşletme SEO (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Akın Topal - Web Tasarım & Güvenlik Sistemleri",
+      "image": "https://akintopal.com.tr/akintopal/akintopal1.jpg",
+      "url": "https://akintopal.com.tr",
+      "telephone": "+905338849748",
+      "priceRange": "$$",
+      "description": "Profesyonel Web Tasarımı, Güvenlik Kamerası (CCTV) Kurulumu, Ağ ve Yapısal Kablolama Hizmetleri.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "TR"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "28"
+      }
+    }
+    </script>
 
     <style>
         /* GENEL VE RESET STİLLERİ */
@@ -41,20 +66,20 @@
             position: relative;
         }
         
-        /* AKAN KOD CANVAS STİLİ */
+        /* AKAN KOD CANVAS STİLİ (GPU OPTİMİZE) */
         #matrix-canvas {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -2; /* En arkada durması için */
-            pointer-events: none; /* Sitedeki tıklamaları engellememesi için */
-            opacity: 0.18; /* Gözü yormasın diye ideal transparanlık */
-            filter: blur(2.5px); /* Kodların keskinliğini azaltıp yumuşak bir ışık akışı sağlar */
+            z-index: -2;
+            pointer-events: none;
+            opacity: 0.22;
+            transform: translateZ(0);
         }
         
-        /* MODERN NEON IŞIK KÜRELERİ */
+        /* MODERN NEON IŞIK KÜRELERİ (GPU DOSTU) */
         body::before,
         body::after {
             content: "";
@@ -62,10 +87,10 @@
             width: 600px;
             height: 600px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(0, 229, 255, 0.08) 0%, rgba(0, 0, 0, 0) 70%);
-            filter: blur(80px);
+            background: radial-gradient(circle, rgba(0, 229, 255, 0.06) 0%, transparent 70%);
             z-index: -1;
             pointer-events: none;
+            transform: translateZ(0);
         }
         body::before {
             top: -10%;
@@ -137,21 +162,59 @@
         }
 
         /* GENEL BUTON STİLİ */
+        /* GENEL BUTON STİLİ */
         .btn {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
             padding: 1.2rem 2.8rem;
             background: var(--main-color);
             border-radius: 4rem;
             box-shadow: 0 0 1.5rem rgba(0, 229, 255, 0.4);
             font-size: 1.6rem;
             color: var(--second-bg-color);
-            letter-spacing: .1rem;
+            letter-spacing: .05rem;
             font-weight: 600;
-            transition: .5s ease;
+            transition: .4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 40%;
+            height: 200%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+            transform: rotate(25deg);
+            animation: btnShimmer 4s infinite ease-in-out;
+            z-index: -1;
+        }
+        @keyframes btnShimmer {
+            0% { left: -60%; }
+            20%, 100% { left: 140%; }
         }
         .btn:hover {
-            box-shadow: none;
-            transform: translateY(-2px);
+            box-shadow: 0 0 2.5rem rgba(0, 229, 255, 0.7);
+            transform: translateY(-3px) scale(1.02);
+            color: #000;
+        }
+        .btn-outline {
+            background: rgba(0, 229, 255, 0.05);
+            border: 2px solid var(--main-color);
+            color: var(--main-color);
+            box-shadow: 0 0 1.2rem rgba(0, 229, 255, 0.15);
+        }
+        .btn-outline::after {
+            display: none;
+        }
+        .btn-outline:hover {
+            background: var(--main-color);
+            color: var(--second-bg-color);
+            box-shadow: 0 0 2.5rem rgba(0, 229, 255, 0.6);
         }
         
         /* HOME BÖLÜMÜ */
@@ -159,35 +222,324 @@
             display: flex;
             align-items: center; 
             justify-content: center; 
-            gap: 10rem;
+            gap: 8rem;
+            min-height: 100vh;
+            padding-top: 12rem;
+        }
+        .home-content {
+            max-width: 620px;
+        }
+        .hero-badge-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.7rem 1.6rem;
+            background: rgba(0, 229, 255, 0.08);
+            border: 1px solid rgba(0, 229, 255, 0.25);
+            border-radius: 2rem;
+            font-size: 1.35rem;
+            color: var(--main-color);
+            font-weight: 500;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.12);
+        }
+        .pulse-dot {
+            font-size: 1.4rem;
+            color: #00ff88;
+            animation: pulseGreen 1.8s infinite ease-in-out;
+        }
+        @keyframes pulseGreen {
+            0%, 100% { opacity: 1; transform: scale(1); filter: drop-shadow(0 0 6px #00ff88); }
+            50% { opacity: 0.35; transform: scale(0.8); }
         }
         .home-content h1{
-            font-size: 6rem;
-            font-weight: 700;
-            line-height: 1.3;
+            font-size: 5.8rem;
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
         }
         .home-content h3{
-            font-size: 3.5rem;
-            margin: 1rem 0;
+            font-size: 3.2rem;
+            margin: 1.2rem 0 1.8rem;
+            font-weight: 600;
+            min-height: 4.5rem;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+        .typing-text {
+            font-weight: 700;
+            border-bottom: 2px solid rgba(0, 229, 255, 0.4);
+            padding-bottom: 2px;
+        }
+        .typing-cursor {
+            color: var(--main-color);
+            animation: blinkCursor 0.8s infinite;
+            font-weight: 300;
+            margin-left: 2px;
+        }
+        @keyframes blinkCursor {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
         }
         .home-content p{
-            font-size: 1.6rem;
-            color: #e0e0e0;
+            font-size: 1.65rem;
+            color: #cbd5e1;
+            line-height: 1.7;
         }
-        .home-img img{
-            width: 30vw; 
-            min-width: 280px;
-            aspect-ratio: 1/1; 
-            object-fit: cover;
+        .hero-action-buttons {
+            display: flex;
+            align-items: center;
+            gap: 1.8rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        /* --- SİBER AVATAR, HOLOGRAFİK HALKA & SÜZÜLEN ROZETLER --- */
+        .home-img {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .hero-avatar-container {
+            position: relative;
+            width: 32vw;
+            min-width: 300px;
+            max-width: 400px;
+            aspect-ratio: 1/1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            perspective: 1000px;
+        }
+        .cyber-ring-outer {
+            position: absolute;
+            inset: -18px;
             border-radius: 50%;
-            box-shadow: 0 0 30px rgba(0, 229, 255, 0.3);
-            transition: 0.4s ease-in-out;
-            animation: floatImage 4s ease-in-out infinite;
+            border: 2px dashed rgba(0, 229, 255, 0.4);
+            animation: spinRing 25s linear infinite;
+            pointer-events: none;
         }
-        @keyframes floatImage {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-2.4rem); }
-            100% { transform: translateY(0); }
+        .cyber-ring-inner {
+            position: absolute;
+            inset: -8px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            border-top-color: var(--main-color);
+            border-bottom-color: #0052D4;
+            animation: spinRingReverse 12s linear infinite;
+            box-shadow: 0 0 25px rgba(0, 229, 255, 0.35);
+            pointer-events: none;
+        }
+        .cyber-radar-pulse {
+            position: absolute;
+            inset: -25px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 229, 255, 0.15) 0%, rgba(0, 229, 255, 0) 70%);
+            animation: pulseRadar 3.5s ease-out infinite;
+            pointer-events: none;
+        }
+        @keyframes spinRing {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes spinRingReverse {
+            0% { transform: rotate(360deg); }
+            100% { transform: rotate(0deg); }
+        }
+        @keyframes pulseRadar {
+            0% { transform: scale(0.92); opacity: 0.8; }
+            50% { transform: scale(1.12); opacity: 0.25; }
+            100% { transform: scale(0.92); opacity: 0.8; }
+        }
+        .avatar-image-box {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            overflow: hidden;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 0 45px rgba(0, 229, 255, 0.4), inset 0 0 20px rgba(0, 0, 0, 0.6);
+            border: 3px solid rgba(0, 229, 255, 0.6);
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+        }
+        .avatar-image-box:hover {
+            box-shadow: 0 0 65px rgba(0, 229, 255, 0.7);
+            transform: scale(1.03);
+        }
+        .avatar-image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* --- SÜZÜLEN CAM (GLASSMORPHISM) ROZETLER --- */
+        .floating-badge {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            padding: 1rem 1.6rem;
+            background: rgba(14, 18, 26, 0.88);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(0, 229, 255, 0.35);
+            border-radius: 1.4rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7), 0 0 15px rgba(0, 229, 255, 0.2);
+            z-index: 10;
+            cursor: default;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            white-space: nowrap;
+        }
+        .floating-badge:hover {
+            transform: translateY(-6px) scale(1.06) !important;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.9), 0 0 30px rgba(0, 229, 255, 0.5);
+            border-color: var(--main-color);
+        }
+        .badge-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 3.8rem;
+            height: 3.8rem;
+            background: linear-gradient(135deg, rgba(0, 229, 255, 0.2), rgba(0, 82, 212, 0.35));
+            border-radius: 1rem;
+            border: 1px solid rgba(0, 229, 255, 0.4);
+        }
+        .badge-icon i {
+            font-size: 2.2rem;
+            color: var(--main-color);
+        }
+        .badge-text {
+            display: flex;
+            flex-direction: column;
+        }
+        .badge-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.2;
+        }
+        .badge-sub {
+            font-size: 1.1rem;
+            color: #94a3b8;
+        }
+        .badge-top-left {
+            top: 2%;
+            left: -22%;
+            animation: floatBadge1 4.5s ease-in-out infinite;
+        }
+        .badge-top-right {
+            top: 15%;
+            right: -24%;
+            animation: floatBadge2 5s ease-in-out infinite;
+        }
+        .badge-bottom-left {
+            bottom: 4%;
+            left: -16%;
+            animation: floatBadge3 4.8s ease-in-out infinite;
+        }
+        @keyframes floatBadge1 {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+        }
+        @keyframes floatBadge2 {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+        @keyframes floatBadge3 {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(12px); }
+        }
+
+        /* --- CANLI SAYAÇLAR / İSTATİSTİK BÖLÜMÜ --- */
+        .stats-section {
+            min-height: auto;
+            padding: 2rem 9% 6rem;
+            position: relative;
+            z-index: 5;
+        }
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 2.2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .stat-card {
+            display: flex;
+            align-items: center;
+            gap: 1.8rem;
+            padding: 2.2rem 2.4rem;
+            background: rgba(16, 16, 16, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 229, 255, 0.15);
+            border-radius: 1.6rem;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .stat-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--main-color);
+            box-shadow: 0 15px 35px rgba(0, 229, 255, 0.22);
+            background: rgba(20, 24, 32, 0.85);
+        }
+        .stat-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 5.4rem;
+            height: 5.4rem;
+            background: linear-gradient(135deg, rgba(0, 229, 255, 0.15), rgba(0, 82, 212, 0.25));
+            border-radius: 1.4rem;
+            border: 1px solid rgba(0, 229, 255, 0.3);
+            flex-shrink: 0;
+        }
+        .stat-icon i {
+            font-size: 2.8rem;
+            color: var(--main-color);
+        }
+        .stat-info {
+            display: flex;
+            flex-direction: column;
+        }
+        .stat-number-wrap {
+            display: flex;
+            align-items: baseline;
+            gap: 2px;
+        }
+        .stat-number, .stat-text {
+            font-size: 3.2rem;
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1;
+        }
+        .stat-plus {
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--main-color);
+        }
+        .stat-info p {
+            font-size: 1.35rem;
+            color: #94a3b8;
+            margin-top: 0.4rem;
+            font-weight: 500;
+        }
+
+        /* --- SCROLL REVEAL UTILITIES --- */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-on-scroll.revealed {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* SOSYAL İKONLAR */
@@ -195,21 +547,21 @@
             display: inline-flex;
             justify-content: center;
             align-items: center;
-            width: 4rem;
-            height: 4rem;
-            background: transparent;
+            width: 4.2rem;
+            height: 4.2rem;
+            background: rgba(0, 229, 255, 0.05);
             border: .2rem solid var(--main-color);
             border-radius: 50%;
             font-size: 2rem;
             color: var(--main-color);
-            margin: 3rem 1.5rem 3rem 0;
-            transition: .5s ease;
+            margin: 2.5rem 1.2rem 0 0;
+            transition: .4s ease;
         }
         .social-icon a:hover {
             background: var(--main-color);
             color: var(--second-bg-color);
-            box-shadow: 0 0 1rem var(--main-color);
-            transform: translateY(-3px);
+            box-shadow: 0 0 1.5rem var(--main-color);
+            transform: translateY(-4px) scale(1.1);
         }
 
         /* ORTAK BAŞLIK STİLİ */
@@ -667,10 +1019,339 @@
             color: var(--second-bg-color);
         }
 
+        /* --- NEDEN BENİMLE ÇALIŞMALISINIZ (WHY US) --- */
+        .why-us {
+            padding: 8rem 9%;
+            background: rgba(12, 14, 18, 0.7);
+            backdrop-filter: blur(8px);
+            border-top: 1px solid rgba(0, 229, 255, 0.05);
+            border-bottom: 1px solid rgba(0, 229, 255, 0.05);
+        }
+        .why-us-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .why-card {
+            background: rgba(18, 22, 30, 0.85);
+            padding: 3rem 2.5rem;
+            border-radius: 1.8rem;
+            border: 1px solid rgba(0, 229, 255, 0.15);
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .why-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--main-color);
+            box-shadow: 0 15px 35px rgba(0, 229, 255, 0.2);
+        }
+        .why-icon {
+            width: 6.5rem;
+            height: 6.5rem;
+            margin: 0 auto 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(0, 229, 255, 0.2), rgba(0, 82, 212, 0.3));
+            border-radius: 1.6rem;
+            border: 1px solid rgba(0, 229, 255, 0.4);
+        }
+        .why-icon i {
+            font-size: 3.5rem;
+            color: var(--main-color);
+        }
+        .why-card h3 {
+            font-size: 2.2rem;
+            margin-bottom: 1.2rem;
+            color: #ffffff;
+        }
+        .why-card p {
+            font-size: 1.5rem;
+            color: #cbd5e1;
+            line-height: 1.6;
+        }
+
+        /* --- İNTERAKTİF FİYAT & TEKLİF HESAPLAYICI (CALCULATOR) --- */
+        .calculator-section {
+            padding: 9rem 9%;
+            position: relative;
+        }
+        .calculator-box {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(16, 20, 28, 0.9);
+            border: 2px solid rgba(0, 229, 255, 0.3);
+            border-radius: 2.4rem;
+            padding: 4rem;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 30px rgba(0, 229, 255, 0.15);
+            backdrop-filter: blur(16px);
+        }
+        .calc-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .calc-header p {
+            font-size: 1.6rem;
+            color: #94a3b8;
+            margin-top: 0.8rem;
+        }
+        .calc-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 3.5rem;
+            flex-wrap: wrap;
+        }
+        .calc-tab-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1.2rem 2.4rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 229, 255, 0.2);
+            border-radius: 3rem;
+            color: #ffffff;
+            font-size: 1.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .calc-tab-btn i {
+            font-size: 2rem;
+            color: var(--main-color);
+        }
+        .calc-tab-btn.active, .calc-tab-btn:hover {
+            background: var(--main-color);
+            color: #080808;
+            border-color: var(--main-color);
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.5);
+        }
+        .calc-tab-btn.active i {
+            color: #080808;
+        }
+        .calc-step-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #e2e8f0;
+            margin-bottom: 1.5rem;
+        }
+        .calc-options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+        .calc-option-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1.4rem;
+            padding: 1.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+            position: relative;
+        }
+        .calc-option-card:hover {
+            border-color: rgba(0, 229, 255, 0.5);
+            background: rgba(0, 229, 255, 0.05);
+        }
+        .calc-option-card.selected {
+            border-color: var(--main-color);
+            background: rgba(0, 229, 255, 0.12);
+            box-shadow: 0 0 15px rgba(0, 229, 255, 0.25);
+        }
+        .calc-option-card h4 {
+            font-size: 1.6rem;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .calc-option-card p {
+            font-size: 1.3rem;
+            color: #94a3b8;
+        }
+        .calc-result-box {
+            background: linear-gradient(135deg, rgba(0, 229, 255, 0.08), rgba(0, 82, 212, 0.15));
+            border: 1px solid rgba(0, 229, 255, 0.3);
+            border-radius: 1.8rem;
+            padding: 2.5rem;
+            margin-top: 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        .calc-result-info h4 {
+            font-size: 1.5rem;
+            color: #94a3b8;
+            font-weight: 500;
+        }
+        .calc-result-price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--main-color);
+            margin-top: 0.4rem;
+        }
+        .calc-whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: #25D366;
+            color: #ffffff;
+            font-size: 1.6rem;
+            font-weight: 700;
+            padding: 1.4rem 2.8rem;
+            border-radius: 4rem;
+            box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+        }
+        .calc-whatsapp-btn:hover {
+            background: #20ba5a;
+            box-shadow: 0 0 30px rgba(37, 211, 102, 0.7);
+            transform: translateY(-3px) scale(1.02);
+            color: #ffffff;
+        }
+        .calc-whatsapp-btn i {
+            font-size: 2.4rem;
+        }
+
+        /* --- MÜŞTERİ YORUMLARI (TESTIMONIALS) --- */
+        .testimonials {
+            padding: 9rem 9%;
+            background: rgba(14, 18, 24, 0.7);
+            backdrop-filter: blur(8px);
+            border-top: 1px solid rgba(0, 229, 255, 0.05);
+            border-bottom: 1px solid rgba(0, 229, 255, 0.05);
+        }
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .testimonial-card {
+            background: rgba(18, 22, 30, 0.85);
+            padding: 3rem;
+            border-radius: 2rem;
+            border: 1px solid rgba(0, 229, 255, 0.15);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.4s ease;
+        }
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--main-color);
+            box-shadow: 0 15px 35px rgba(0, 229, 255, 0.2);
+        }
+        .stars {
+            color: #FFB800;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            gap: 0.3rem;
+        }
+        .testimonial-text {
+            font-size: 1.55rem;
+            color: #e2e8f0;
+            line-height: 1.7;
+            font-style: italic;
+            margin-bottom: 2.5rem;
+        }
+        .client-profile {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        .client-avatar {
+            width: 5rem;
+            height: 5rem;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--main-color), #0052D4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #080808;
+        }
+        .client-info h4 {
+            font-size: 1.7rem;
+            color: #ffffff;
+        }
+        .client-info span {
+            font-size: 1.3rem;
+            color: var(--main-color);
+        }
+
+        /* --- FLOATING WHATSAPP BUTTON --- */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 3.5rem;
+            right: 3.5rem;
+            width: 6.2rem;
+            height: 6.2rem;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+            z-index: 999;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        .floating-whatsapp i {
+            font-size: 3.6rem;
+            color: #ffffff;
+        }
+        .floating-whatsapp:hover {
+            transform: scale(1.12);
+            box-shadow: 0 12px 35px rgba(37, 211, 102, 0.8);
+        }
+        .whatsapp-pulse {
+            position: absolute;
+            inset: -8px;
+            border-radius: 50%;
+            border: 2px solid #25D366;
+            animation: pulseWa 2s infinite;
+            pointer-events: none;
+        }
+        @keyframes pulseWa {
+            0% { transform: scale(0.95); opacity: 0.9; }
+            50% { transform: scale(1.3); opacity: 0; }
+            100% { transform: scale(0.95); opacity: 0; }
+        }
+        .whatsapp-badge {
+            position: absolute;
+            top: -4px;
+            right: -4px;
+            background: #ff3366;
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 800;
+            padding: 0.2rem 0.6rem;
+            border-radius: 1rem;
+            border: 2px solid #080808;
+        }
+
         /* RESPONSIVE TASARIM MEDIA SORGULARI */
         @media (max-width: 1200px) {
             html { font-size: 55%; }
             .home-img img { width: 35vw; }
+            .badge-top-left { left: -10%; }
+            .badge-top-right { right: -12%; }
+            .badge-bottom-left { left: -6%; }
         }
         @media (max-width: 991px) {
             .header { padding: 2rem 3%; }
@@ -680,6 +1361,9 @@
             .contact { min-height: auto; }
             .footer { padding: 2rem 3%; }
             .home-img img { width: 45vw; }
+            .badge-top-left { left: -6%; }
+            .badge-top-right { right: -8%; }
+            .badge-bottom-left { left: -4%; }
         }
         @media (max-width: 768px) {
             #menu-icon { display: block; }
@@ -696,10 +1380,21 @@
             }
             .navbar.active { left: 0; }
             .navbar a { display: block; font-size: 2rem; margin: 3rem 0; }
-            .home { flex-direction: column-reverse; text-align: center; gap: 3rem; }
-            .home-content h1 { font-size: 5rem; }
-            .home-content h3 { font-size: 2.6rem; }
-            .home-img img { width: 70vw; margin-top: 4rem; }
+            .home { flex-direction: column-reverse; text-align: center; gap: 4rem; padding-top: 10rem; }
+            .home-content h1 { font-size: 4.6rem; }
+            .home-content h3 { font-size: 2.5rem; justify-content: center; }
+            .home-img img { width: 70vw; margin-top: 0; }
+            .hero-avatar-container { width: 65vw; min-width: 260px; margin: 2rem auto; }
+            .hero-action-buttons { justify-content: center; }
+            .social-icon { justify-content: center; }
+            .floating-badge { padding: 0.8rem 1.2rem; gap: 0.8rem; }
+            .badge-icon { width: 3.2rem; height: 3.2rem; }
+            .badge-icon i { font-size: 1.8rem; }
+            .badge-title { font-size: 1.15rem; }
+            .badge-sub { font-size: 0.95rem; }
+            .badge-top-left { top: -2%; left: -5%; }
+            .badge-top-right { top: 10%; right: -5%; }
+            .badge-bottom-left { bottom: -2%; left: -2%; }
             .about { flex-direction: column; text-align: center; }
             .services h2, .projects h2 { margin-bottom: 3rem; }
             .education .timeline::after {
@@ -726,7 +1421,15 @@
         @media (max-width: 480px) {
             html { font-size: 50%; }
             .contact form .input-box input { width: 100%; }
-            .home-img img { width: 80vw; }
+            .home-content h1 { font-size: 3.8rem; }
+            .home-content h3 { font-size: 2.2rem; }
+            .hero-avatar-container { width: 75vw; min-width: 240px; }
+            .floating-badge { display: none; } /* Hide floating badges on extra small screens to prevent overflow */
+            .stats-container { grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+            .stat-card { padding: 1.6rem 1.2rem; gap: 1rem; flex-direction: column; text-align: center; }
+            .stat-icon { width: 4.4rem; height: 4.4rem; }
+            .stat-number, .stat-text { font-size: 2.5rem; }
+            .stat-info p { font-size: 1.2rem; }
         }
     </style>
 </head>
@@ -740,39 +1443,118 @@
         <nav class="navbar">
             <a href="#home" class="active">Ana Sayfa</a>
             <a href="#about">Hakkımda</a>
-            <a href="#education">Eğitim & Deneyim</a>
             <a href="#services">Hizmetler</a>
+            <a href="#why-us">Neden Ben?</a>
             <a href="#projects">Projeler</a>
+            <a href="#calculator">Fiyat Hesapla</a>
+            <a href="#testimonials">Yorumlar</a>
             <a href="#contact">İletişim</a>
         </nav>
     </header>
 
     <section class="home" id="home">
-        <div class="home-content">
+        <div class="home-content reveal-on-scroll">
+            <div class="hero-badge-tag"><i class='bx bxs-circle pulse-dot'></i> Çevrimiçi & Yeni Projelere Açık</div>
             <h1>Merhaba, ben <span class="gradient-text">Akın</span></h1>
-            <h3>Ben bir <span class="gradient-text">Güvenlik Sistemleri Uzmanıyım.</span></h3>
-            <p>Web siteleri tasarlıyor, C# ile yazılımlar geliştiriyor ve güvenlik kameraları kuruyorum. Teknolojiyi hayatın her alanına taşıyorum.</p>
-            <div class="social-icon">
-                <a href="https://www.linkedin.com/in/akın-topal-8bbb0b389/" target="_blank"><i class='bx bxl-linkedin'></i></a>
-                <a href="https://github.com/ak1n-lab" target="_blank"><i class='bx bxl-github'></i></a>
-                <a href="https://twitter.com/akintopalll" target="_blank"><i class='bx bxl-twitter'></i></a>
-                <a href="https://instagram.com/akintopalll" target="_blank"><i class='bx bxl-instagram'></i></a>
+            <h3>Ben bir <span class="typing-text gradient-text"></span><span class="typing-cursor">|</span></h3>
+            <p>Modern web siteleri tasarlıyor, profesyonel güvenlik kamerası sistemleri kuruyor ve kurumsal ağ altyapılarını optimize ediyorum. Teknolojiyi ve güvenliği hayatın her alanına taşıyorum.</p>
+            <div class="hero-action-buttons">
+                <a href="#calculator" class="btn btn-primary"><i class='bx bx-calculator'></i> Hızlı Fiyat Hesapla</a>
+                <a href="#contact" class="btn btn-outline"><i class='bx bx-paper-plane'></i> İletişime Geç</a>
             </div>
-            <a href="#projects" class="btn">Projelerimi Gör</a>
+            <div class="social-icon">
+                <a href="https://www.linkedin.com/in/akın-topal-8bbb0b389/" target="_blank" title="LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                <a href="https://github.com/ak1n-lab" target="_blank" title="GitHub"><i class='bx bxl-github'></i></a>
+                <a href="https://twitter.com/akintopalll" target="_blank" title="Twitter"><i class='bx bxl-twitter'></i></a>
+                <a href="https://instagram.com/akintopalll" target="_blank" title="Instagram"><i class='bx bxl-instagram'></i></a>
+            </div>
         </div>
-        <div class="home-img">
-            <img src="akintopal/akintopal1.jpg" alt="Akın Topal Portre">
+        <div class="home-img reveal-on-scroll">
+            <div class="hero-avatar-container">
+                <div class="cyber-radar-pulse"></div>
+                <div class="cyber-ring-outer"></div>
+                <div class="cyber-ring-inner"></div>
+                <div class="avatar-image-box">
+                    <img src="akintopal/akintopal1.jpg" alt="Akın Topal Portre">
+                </div>
+                
+                <!-- Süzülen Cam (Glassmorphism) Rozetler -->
+                <div class="floating-badge badge-top-left">
+                    <div class="badge-icon"><i class='bx bx-shield-quarter'></i></div>
+                    <div class="badge-text">
+                        <span class="badge-title">Siber Güvenlik</span>
+                        <span class="badge-sub">Ağ & Koruma</span>
+                    </div>
+                </div>
+
+                <div class="floating-badge badge-top-right">
+                    <div class="badge-icon"><i class='bx bx-code-alt'></i></div>
+                    <div class="badge-text">
+                        <span class="badge-title">Web Tasarım</span>
+                        <span class="badge-sub">Modern & Hızlı UI</span>
+                    </div>
+                </div>
+
+                <div class="floating-badge badge-bottom-left">
+                    <div class="badge-icon"><i class='bx bx-cctv'></i></div>
+                    <div class="badge-text">
+                        <span class="badge-title">7/24 Kamera</span>
+                        <span class="badge-sub">Güvenlik Sistemleri</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CANLI SAYAÇLAR / İSTATİSTİK BÖLÜMÜ -->
+    <section class="stats-section">
+        <div class="stats-container">
+            <div class="stat-card reveal-on-scroll">
+                <div class="stat-icon"><i class='bx bx-time-five'></i></div>
+                <div class="stat-info">
+                    <div class="stat-number-wrap">
+                        <span class="stat-number" data-target="4">0</span><span class="stat-plus">+</span>
+                    </div>
+                    <p>Yıllık Deneyim</p>
+                </div>
+            </div>
+            <div class="stat-card reveal-on-scroll">
+                <div class="stat-icon"><i class='bx bx-check-shield'></i></div>
+                <div class="stat-info">
+                    <div class="stat-number-wrap">
+                        <span class="stat-number" data-target="25">0</span><span class="stat-plus">+</span>
+                    </div>
+                    <p>Tamamlanan Proje</p>
+                </div>
+            </div>
+            <div class="stat-card reveal-on-scroll">
+                <div class="stat-icon"><i class='bx bx-smile'></i></div>
+                <div class="stat-info">
+                    <div class="stat-number-wrap">
+                        <span class="stat-number" data-target="100">0</span><span class="stat-plus">%</span>
+                    </div>
+                    <p>Müşteri Memnuniyeti</p>
+                </div>
+            </div>
+            <div class="stat-card reveal-on-scroll">
+                <div class="stat-icon"><i class='bx bx-support'></i></div>
+                <div class="stat-info">
+                    <div class="stat-number-wrap">
+                        <span class="stat-text">7/24</span>
+                    </div>
+                    <p>Güvenlik & Destek</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <section class="about" id="about">
-        <div class="about-text">
+        <div class="about-text reveal-on-scroll">
             <h2 class="heading">Hakkımda <span class="gradient-text">Ben Kimim?</span></h2>
-            <h3>Yazılım geliştir, sistemi kur, güvenliği sağla!</h3>
-            <p>Web tasarımı, C# uygulama geliştirme ve güvenlik kamerası kurulumu alanlarında profesyonel hizmet sunuyorum.
-Modern, kullanıcı dostu ve performans odaklı web siteleri geliştirirken; C# ile özel yazılımlar üretiyor, ihtiyaçlarınıza özel çözümler sunuyorum.
-Ayrıca ev ve iş yerlerine güvenlik kamerası sistemleri kurarak, alanlarınızı 7/24 koruma altına alıyorum.
-Teknoloji ve güvenliği bir araya getirerek, dijital dünyada güçlü, gerçek dünyada güvenli bir yapı oluşturuyorum.</p>
+            <h3>Sistemi kur, güvenliği sağla, dijitalde fark yarat!</h3>
+            <p>Web tasarımı, güvenlik kamerası kurulumu ve kurumsal ağ altyapısı alanlarında profesyonel hizmet sunuyorum.
+Modern, kullanıcı dostu ve SEO odaklı hızlı web siteleri geliştirirken; ev ve iş yerlerine yüksek çözünürlüklü IP/CCTV güvenlik kamerası sistemleri kurarak alanlarınızı 7/24 koruma altına alıyorum.
+Ayrıca karmaşık ağ kabinlerini ve fiber altyapılarını profesyonel standartlarda düzenleyerek kesintisiz ve güvenli bir dijital yapı inşa ediyorum.</p>
             <a href="#contact" class="btn">Benimle İletişime Geç</a>
         </div>
     </section>
@@ -780,7 +1562,7 @@ Teknoloji ve güvenliği bir araya getirerek, dijital dünyada güçlü, gerçek
     <section class="education" id="education">
         <h2 class="heading">Kariyer <span class="gradient-text">Yolculuğum</span></h2>
         <div class="timeline">
-            <div class="container right">
+            <div class="container right reveal-on-scroll">
                 <div class="content">
                     <div class="tag"><i class='bx bxs-graduation'></i><h2>Lise</h2></div>
                     <div class="description">
@@ -789,21 +1571,30 @@ Teknoloji ve güvenliği bir araya getirerek, dijital dünyada güçlü, gerçek
                     </div>
                 </div>
             </div>
-            <div class="container left">
+            <div class="container left reveal-on-scroll">
                 <div class="content">
                     <div class="tag"><i class='bx bxs-school'></i><h2>Stajyer Teknisyen</h2></div>
                     <div class="description">
-                        <p><strong>Tekno Marks Ltd.Şti.</strong> - Tekno Marks firması 2007 yılında temelleri atılmış 2016 yılında limited şirkete çevrilmiş bilişim firmasıdır.</p>
+                        <p><strong>Tekno Marks Ltd.Şti.</strong> - Bilişim ve kamera sistemleri üzerine saha ve donanım deneyimi.</p>
                         <p>2023 - 2024</p>
                     </div>
                 </div>
             </div>
-            <div class="container right">
+            <div class="container right reveal-on-scroll">
                 <div class="content">
                     <div class="tag"><i class='bx bxs-briefcase'></i><h2>Üniversite</h2></div>
                     <div class="description">
                         <p><strong>Bilgisayar Programcılığı</strong> - Doğu Akdeniz Üniversitesi</p>
                         <p>2025 - 2027</p>
+                    </div>
+                </div>
+            </div>
+            <div class="container left reveal-on-scroll">
+                <div class="content">
+                    <div class="tag"><i class='bx bxs-briefcase'></i><h2>IT Uzman Yardımcısı</h2></div>
+                    <div class="description">
+                        <p><strong>Four Vision Development</strong> - KKTC'nin köklü lüks yaşam projelerinde IT ve altyapı yönetimi.</p>
+                        <p>2024 - Günümüz</p>
                     </div>
                 </div>
             </div>
@@ -813,20 +1604,50 @@ Teknoloji ve güvenliği bir araya getirerek, dijital dünyada güçlü, gerçek
     <section class="services" id="services">
         <h2 class="heading">Neler <span class="gradient-text">Yapıyorum?</span></h2>
         <div class="services-container">
-            <div class="service-box">
-                <i class='bx bx-code-alt'></i><h3>Frontend Geliştirme</h3>
-                <p>HTML, CSS ve JavaScript (React, Vue) kullanarak, her cihaza uyumlu (responsive), hızlı ve modern web arayüzleri geliştiriyorum.</p>
-                <a href="#" class="btn">Daha Fazla</a>
+            <div class="service-box reveal-on-scroll">
+                <i class='bx bx-code-alt'></i>
+                <h3>Web Tasarım & Geliştirme</h3>
+                <p>Her cihaza uyumlu (responsive), ultra hızlı ve SEO odaklı modern kurumsal web siteleri, portfolyolar ve açılış sayfaları (Landing Page) tasarlıyorum.</p>
+                <a href="#calculator" class="btn">Fiyat Hesapla</a>
             </div>
-            <div class="service-box">
-                <i class='bx bx-server'></i><h3>Güvenlik Kamerası Kurulumu</h3>
-                <p>Güvenlik kamerası sistemleri ile evinizi, iş yerinizi ve sevdiklerinizi 7/24 koruma altına alıyoruz. Uzman ekibimiz, ihtiyaçlarınıza en uygun kamera çözümünü sunarak kurulumdan devreye almaya kadar tüm süreçleri profesyonelce yönetir. Güvenliğiniz bizim önceliğimizdir.</p>
-                <a href="#" class="btn">Daha Fazla</a>
+            <div class="service-box reveal-on-scroll">
+                <i class='bx bx-cctv'></i>
+                <h3>Güvenlik Kamerası (CCTV)</h3>
+                <p>Ev ve iş yerlerinize yüksek çözünürlüklü IP/AHD kamera, gece görüşü, uzaktan telefonla 7/24 canlı izleme ve NVR kayıt sistemleri kuruyorum.</p>
+                <a href="#calculator" class="btn">Fiyat Hesapla</a>
             </div>
-            <div class="service-box">
-                <i class='bx bx-paint'></i><h3>Program Geliştirme</h3>
-                <p>C# programlama diliyle çeşitli masaüstü ve web tabanlı uygulamalar geliştiriyorum. Verimli, güvenli ve kullanıcı dostu yazılım çözümleri üretmek için modern teknolojileri kullanarak projeleri ihtiyaçlara göre şekillendiriyorum.</p>
-                <a href="#" class="btn">Daha Fazla</a>
+            <div class="service-box reveal-on-scroll">
+                <i class='bx bx-network-chart'></i>
+                <h3>Ağ & Yapısal Kablolama</h3>
+                <p>Patch panel sonlandırma, Cat6/Fiber kablolama, veri kabini optimizasyonu, switch & PoE yapılandırması ile düzenli ve güvenli ağ kuruyorum.</p>
+                <a href="#calculator" class="btn">Fiyat Hesapla</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- NEDEN BENİMLE ÇALIŞMALISINIZ (GÜVEN & GARANTİ KARTLARI) --- -->
+    <section class="why-us" id="why-us">
+        <h2 class="heading">Neden <span class="gradient-text">Benimle Çalışmalısınız?</span></h2>
+        <div class="why-us-grid">
+            <div class="why-card reveal-on-scroll">
+                <div class="why-icon"><i class='bx bx-rocket'></i></div>
+                <h3>Hızlı Teslimat</h3>
+                <p>Web projelerinizi ve kamera kurulumlarınızı söz verdiğimiz günde, gecikme olmadan eksiksiz teslim ediyorum.</p>
+            </div>
+            <div class="why-card reveal-on-scroll">
+                <div class="why-icon"><i class='bx bx-wrench'></i></div>
+                <h3>1 Yıl Ücretsiz Destek</h3>
+                <p>Kurulum veya teslimat sonrası teknik destek ve sistem kontrolleri ile her zaman yanınızdayım.</p>
+            </div>
+            <div class="why-card reveal-on-scroll">
+                <div class="why-icon"><i class='bx bx-search-alt'></i></div>
+                <h3>Ücretsiz Keşif & Danışmanlık</h3>
+                <p>İş yeriniz veya eviniz için ihtiyacınıza en uygun, bütçe dostu çözümü yerinde tespit ediyorum.</p>
+            </div>
+            <div class="why-card reveal-on-scroll">
+                <div class="why-icon"><i class='bx bx-check-shield'></i></div>
+                <h3>%100 Güvenlik & Gizlilik</h3>
+                <p>Siber güvenlik standartlarına uygun, şifrelenmiş ve dış müdahalelere kapalı altyapılar kuruyorum.</p>
             </div>
         </div>
     </section>
@@ -834,7 +1655,7 @@ Teknoloji ve güvenliği bir araya getirerek, dijital dünyada güçlü, gerçek
     <section class="projects" id="projects">
         <h2 class="heading">Son <span class="gradient-text">Projelerim</span></h2>
         <div class="projects-container">
-            <div class="project-box">
+            <div class="project-box reveal-on-scroll">
                 <img src="projeler/after.jpg" alt="Proje 1">
                 <div class="project-layer">
                     <h4>Ağ Altyapısı Düzenleme</h4>
@@ -850,45 +1671,133 @@ Teknoloji ve güvenliği bir araya getirerek, dijital dünyada güçlü, gerçek
                 </div>
             </div>
 
-            <div class="project-box">
+            <div class="project-box reveal-on-scroll">
                 <img src="projeler/cctv.jpg" alt="Proje 2">
                 <div class="project-layer">
-                    <h4>Fiber Optik ve Ağ Kabini Düzenleme Projesi</h4><p>Müşteriler için ağ Kabini Optimizasyonu.</p>
+                    <h4>Fiber Optik ve Ağ Kabini Düzenleme</h4>
+                    <p>Kurumsal Ağ Kabini Optimizasyonu</p>
                     <a href="#" class="project-detail-btn" 
                        data-after-image="projeler/cctv.jpg" 
-                       data-title="Blog Yönetim Paneli Detayları" 
-                       data-description="Kurumsal ağ altyapısında fiber optik bağlantılar ve aktif ağ ekipmanlarının düzenlenmesi gerçekleştirildi. Dağınık kablolama yeniden organize edilerek sistemin yönetilebilirliği artırıldı. Fiber sonlandırmalar kontrol edilip ağ cihazları optimize edilerek daha güvenilir ve sürdürülebilir bir altyapı oluşturuldu."
+                       data-title="Fiber Optik ve Ağ Yönetim Paneli" 
+                       data-description="Kurumsal ağ altyapısında fiber optik bağlantılar ve aktif ağ ekipmanlarının düzenlenmesi gerçekleştirildi. Dağınık kablolama yeniden organize edilerek sistemin yönetilebilirliği artırıldı."
                        data-tech="Kullanılan Teknolojiler: Fiber Optik Kablolama, Patch Panel, SFP Modülleri, Switch Yönetimi, Ağ Altyapısı.">
                        <i class='bx bx-plus'></i>
                     </a>
                 </div>
             </div>
 
-            <div class="project-box">
+            <div class="project-box reveal-on-scroll">
                 <img src="projeler/sapkali.jpg" alt="Proje 3">
                 <div class="project-layer">
-                    <h4>Yapısal Kablolama ve Altyapı Kurulumu</h4><p>Müşteri isteği üzerine altyapı kablolama işleri tamamlandı.</p>
+                    <h4>Yapısal Kablolama ve Altyapı</h4>
+                    <p>Data Sistem Kabini Düzeni</p>
                     <a href="#" class="project-detail-btn" 
                        data-after-image="projeler/sapkali.jpg" 
-                       data-title="Hava Durumu Uygulaması Detayları" 
-                       data-description="Kurumsal ağ altyapısı kapsamında veri kablolama, kablo güzergâhlarının oluşturulması ve sonlandırma işlemleri gerçekleştirildi. Ağ noktaları düzenlenerek sistemin güvenilirliği ve yönetilebilirliği artırıldı. Proje süresince kablo organizasyonu, etiketleme ve altyapı hazırlıkları profesyonel standartlara uygun şekilde tamamlandı."
+                       data-title="Data Sistem Kabini Düzeni Detayları" 
+                       data-description="Kurumsal ağ altyapısı kapsamında veri kablolama, kablo güzergâhlarının oluşturulması ve sonlandırma işlemleri gerçekleştirildi."
                        data-tech="Kullanılan Teknolojiler: Cat6 Kablolama, RJ45 Sonlandırma, Patch Panel, Switch Altyapısı, Yapısal Kablolama">
                        <i class='bx bx-plus'></i>
                     </a>
                 </div>
             </div>
 
-            <div class="project-box">
+            <div class="project-box reveal-on-scroll">
                 <img src="projeler/akincctv.jpg" alt="Proje 4">
                 <div class="project-layer">
-                    <h4>IP Kamera Sistemi Kurulumu</h4><p>Müşteri isteğine özel ip kamera ve kablo projesi yapımı.</p>
+                    <h4>IP Kamera Sistemi Kurulumu</h4>
+                    <p>7/24 Kesintisiz Güvenlik Kamera Projesi</p>
                     <a href="#" class="project-detail-btn" 
                        data-after-image="projeler/akincctv.jpg" 
-                       data-title="Tasarımcı Portfolyosu Detayları" 
-                       data-description="Güvenlik altyapısı kapsamında IP kamera sisteminin ağ bağlantıları ve kablolama işlemleri gerçekleştirildi. Kamera hatları sonlandırılarak switch ve kayıt cihazı (NVR) entegrasyonu sağlandı. Sistem test edilip devreye alınarak kesintisiz görüntü izleme ve kayıt altyapısı oluşturuldu."
+                       data-title="IP Kamera Sistemi Kurulum Detayları" 
+                       data-description="Güvenlik altyapısı kapsamında IP kamera sisteminin ağ bağlantıları ve kablolama işlemleri gerçekleştirildi. Kamera hatları sonlandırılarak NVR entegrasyonu sağlandı."
                        data-tech="Kullanılan Teknolojiler: IP Kamera, NVR, PoE Switch, Cat6 Kablolama, Ağ Altyapısı">
                        <i class='bx bx-plus'></i>
                     </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- İNTERAKTİF FİYAT & TEKLİF HESAPLAYICI (LEAD MAGNET) --- -->
+    <section class="calculator-section" id="calculator">
+        <h2 class="heading">Hızlı <span class="gradient-text">Fiyat Hesapla</span></h2>
+        <div class="calculator-box reveal-on-scroll">
+            <div class="calc-header">
+                <h3>İhtiyacınıza Özel Ön Teklifinizi Oluşturun</h3>
+                <p>Hizmetinizi ve detayları seçin, anında tahmini bütçeyi görüp WhatsApp'tan bana iletin.</p>
+            </div>
+
+            <!-- Kategori Sekmeleri -->
+            <div class="calc-tabs">
+                <button class="calc-tab-btn active" data-service="web"><i class='bx bx-globe'></i> Web Tasarımı</button>
+                <button class="calc-tab-btn" data-service="cctv"><i class='bx bx-cctv'></i> Güvenlik Kamerası</button>
+                <button class="calc-tab-btn" data-service="network"><i class='bx bx-server'></i> Ağ & Kabin Düzeni</button>
+            </div>
+
+            <!-- Adım 1: Seçenekler -->
+            <div class="calc-content-area">
+                <div class="calc-step-title" id="calc-step-title">1. Proje Türünü Seçin:</div>
+                <div class="calc-options-grid" id="calc-options-container">
+                    <!-- JavaScript ile dinamik dolacak -->
+                </div>
+            </div>
+
+            <!-- Sonuç Kutusu -->
+            <div class="calc-result-box">
+                <div class="calc-result-info">
+                    <h4>Tahmini Bütçe & Paket Aralığı:</h4>
+                    <div class="calc-result-price" id="calc-price-display">₺7.500 - ₺12.000</div>
+                </div>
+                <a href="#" class="calc-whatsapp-btn" id="calc-send-whatsapp" target="_blank">
+                    <i class='bx bxl-whatsapp'></i> Bu Teklifi WhatsApp'a Gönder
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- MÜŞTERİ YORUMLARI & REFERANSLAR (SOCIAL PROOF) --- -->
+    <section class="testimonials" id="testimonials">
+        <h2 class="heading">Müşteri <span class="gradient-text">Değerlendirmeleri</span></h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card reveal-on-scroll">
+                <div class="stars">
+                    <i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i>
+                </div>
+                <p class="testimonial-text">"Ofisimizin tüm güvenlik kamerası ve ağ altyapısını Akın Bey kurdu. Kablolar o kadar temiz çekildi ki hiçbir dağınıklık kalmadı. 7/24 telefonumuzdan izleyebiliyoruz. Eline sağlık!"</p>
+                <div class="client-profile">
+                    <div class="client-avatar">EK</div>
+                    <div class="client-info">
+                        <h4>Emre Kaya</h4>
+                        <span>İşletme Sahibi - CCTV & Ağ Projesi</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card reveal-on-scroll">
+                <div class="stars">
+                    <i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i>
+                </div>
+                <p class="testimonial-text">"Kurumsal web sitemizi sıfırdan hazırladı. Hem mobilde çok hızlı açılıyor hem de tasarımı tam istediğimiz gibi modern oldu. Google'dan müşteri dönüşlerimiz hissedilir şekilde arttı."</p>
+                <div class="client-profile">
+                    <div class="client-avatar">SD</div>
+                    <div class="client-info">
+                        <h4>Selin Demir</h4>
+                        <span>Pazarlama Direktörü - Web Tasarımı</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card reveal-on-scroll">
+                <div class="stars">
+                    <i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i>
+                </div>
+                <p class="testimonial-text">"Veri kabinimizdeki karmaşık kablolar yüzünden sürekli internet kesintisi yaşıyorduk. Patch panelleri baştan etiketleyip düzenledi, sistem saat gibi çalışıyor. Kesinlikle tavsiye ederim."</p>
+                <div class="client-profile">
+                    <div class="client-avatar">BY</div>
+                    <div class="client-info">
+                        <h4>Burak Yılmaz</h4>
+                        <span>Teknik Müdür - Ağ Kabini Optimizasyonu</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -941,112 +1850,326 @@ Teknoloji ve güvenliği bir araya getirerek, dijital dünyada güçlü, gerçek
         </div>
     </footer>
 
+    <!-- SABİT (FLOATING) WHATSAPP BUTONU -->
+    <a href="https://wa.me/905338849748?text=Merhaba%20Ak%C4%B1n%20Bey,%20web%20sitesi%20veya%20g%C3%BCvenlik%20kameras%C4%B1%20hizmetleriniz%20hakk%C4%B1nda%20bilgi%20ve%20fiyat%20teklifi%20almak%20istiyorum." target="_blank" class="floating-whatsapp" id="floating-whatsapp-btn" title="Hemen Fiyat Teklifi Al (WhatsApp)">
+        <div class="whatsapp-pulse"></div>
+        <div class="whatsapp-badge">Online</div>
+        <i class='bx bxl-whatsapp'></i>
+    </a>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            
             // ==========================================
-            // AKAN KOD (MATRIX CANVAS) MOTORU
+            const typingText = document.querySelector('.typing-text');
+            const words = [
+                "Web Tasarım & Geliştiricisiyim.",
+                "Güvenlik Kamerası (CCTV) Uzmanıyım.",
+                "Ağ Altyapısı & Fiber Teknisyeniyim.",
+                "Siber Güvenlik & Sistem Yöneticisiyim.",
+                "7/24 Kamera & IT Destek Uzmanıyım."
+            ];
+            let wordIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+            let typeSpeed = 90;
+
+            function typeEffect() {
+                const currentWord = words[wordIndex];
+                
+                if (isDeleting) {
+                    typingText.textContent = currentWord.substring(0, charIndex - 1);
+                    charIndex--;
+                    typeSpeed = 45;
+                } else {
+                    typingText.textContent = currentWord.substring(0, charIndex + 1);
+                    charIndex++;
+                    typeSpeed = 95;
+                }
+
+                if (!isDeleting && charIndex === currentWord.length) {
+                    typeSpeed = 2200; // Kelime bittiğinde bekleme süresi
+                    isDeleting = true;
+                } else if (isDeleting && charIndex === 0) {
+                    isDeleting = false;
+                    wordIndex = (wordIndex + 1) % words.length;
+                    typeSpeed = 400; // Yeni kelimeye geçmeden önceki duraksama
+                }
+
+                setTimeout(typeEffect, typeSpeed);
+            }
+            if (typingText) typeEffect();
+
+
+            // ==========================================
+            // 2. İNTERAKTİF MATRIX & CYBER PARÇACIK AĞI (PERFORMANS CANAVARI)
             // ==========================================
             const canvas = document.getElementById('matrix-canvas');
-            const ctx = canvas.getContext('2d');
+            const ctx = canvas.getContext('2d', { alpha: true });
+
+            let winW = window.innerWidth;
+            let winH = window.innerHeight;
 
             function resizeCanvas() {
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight;
+                winW = window.innerWidth;
+                winH = window.innerHeight;
+                canvas.width = winW;
+                canvas.height = winH;
             }
             resizeCanvas();
-            window.addEventListener('resize', resizeCanvas);
+            window.addEventListener('resize', resizeCanvas, { passive: true });
 
+            // Matrix Kod Yağmuru
             const customCode = [
-                "using System;",
-                "public class SecuritySystem {",
-                "private string cctv_status = 'Active';",
-                "const canvas = document.getElementById('matrix-canvas');",
-                "backdrop-filter: blur(12px);",
-                "position: fixed; top: 0; left: 0;",
-                "box-shadow: 0 0 15px rgba(0, 229, 255, 0.4);",
-                "SELECT * FROM Users WHERE role = 'Admin';",
-                "import React, { useState } from 'react';",
-                "const [security, setSecurity] = useState(true);",
-                "npm run build --production",
-                "window.addEventListener('scroll', scrollSpy);",
-                "sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT",
-                "Console.WriteLine('Sistem Guvenli.');",
-                "ctx.fillText(char, x, y);",
-                "navigator.mediaDevices.getUserMedia({ video: true })",
-                "string connectionString = 'Server=myServerAddress;';",
-                "document.querySelector('.navbar').classList.toggle('active');"
+                "const web = new WebProject();", "cctv_status = 'Active';",
+                "SELECT * FROM Systems;", "npm run build --prod",
+                "iptables -A INPUT -p tcp --dport 80", "poe_switch.connect('192.168.1.1');",
+                "System.Security.Online();", "camera_feed.record(24_7);"
             ];
-
             const fontSize = 14;
-            const columns = Math.floor(canvas.width / fontSize);
-            const rainDrops = Array(columns).fill(1).map(() => Math.floor(Math.random() * -canvas.height / fontSize));
+            const columns = Math.floor(winW / (fontSize * 1.5));
+            const rainDrops = Array(columns).fill(1).map(() => Math.floor(Math.random() * -30));
 
-            function drawMatrix() {
-                ctx.fillStyle = 'rgba(8, 8, 8, 0.06)';
-                ctx.fillRect(0, 0, canvas.width, canvas.height);
+            // Siber Parçacık Ağı (Constellation Nodes - Optimize Sayı)
+            const particleCount = Math.min(22, Math.floor(winW / 55));
+            const particles = [];
+            let mouse = { x: null, y: null, radius: 120 };
 
-                ctx.fillStyle = '#00E5FF';
-                ctx.font = fontSize + 'px monospace';
+            window.addEventListener('mousemove', (e) => {
+                mouse.x = e.clientX;
+                mouse.y = e.clientY;
+            }, { passive: true });
 
-                for (let i = 0; i < rainDrops.length; i++) {
-                    const textRow = customCode[Math.floor(Math.random() * customCode.length)];
-                    const char = textRow[Math.floor(Math.random() * textRow.length)] || " ";
+            window.addEventListener('mouseleave', () => {
+                mouse.x = null;
+                mouse.y = null;
+            }, { passive: true });
 
-                    const x = i * fontSize;
-                    const y = rainDrops[i] * fontSize;
-
-                    ctx.fillText(char, x, y);
-
-                    if (y > canvas.height && Math.random() > 0.98) {
-                        rainDrops[i] = 0;
-                    }
-                    rainDrops[i]++;
-                }
+            for (let i = 0; i < particleCount; i++) {
+                particles.push({
+                    x: Math.random() * winW,
+                    y: Math.random() * winH,
+                    vx: (Math.random() - 0.5) * 0.6,
+                    vy: (Math.random() - 0.5) * 0.6,
+                    radius: Math.random() * 1.5 + 1.2
+                });
             }
-            setInterval(drawMatrix, 33);
+
+            let lastMatrixTick = 0;
+
+            function renderCyberCanvas(timestamp) {
+                // Arka planı hafif temizle
+                ctx.fillStyle = 'rgba(8, 8, 8, 0.12)';
+                ctx.fillRect(0, 0, winW, winH);
+
+                // 1. Matrix Yağmuru (35ms'de bir güncellenir - CPU tasarrufu)
+                if (timestamp - lastMatrixTick > 35) {
+                    lastMatrixTick = timestamp;
+                    ctx.fillStyle = 'rgba(0, 229, 255, 0.85)';
+                    ctx.font = fontSize + 'px monospace';
+                    for (let i = 0; i < rainDrops.length; i++) {
+                        if (Math.random() > 0.45) {
+                            const textRow = customCode[i % customCode.length];
+                            const char = textRow[rainDrops[i] % textRow.length] || "1";
+                            ctx.fillText(char, i * (fontSize * 1.5), rainDrops[i] * fontSize);
+                        }
+                        if (rainDrops[i] * fontSize > winH && Math.random() > 0.98) {
+                            rainDrops[i] = 0;
+                        }
+                        rainDrops[i]++;
+                    }
+                }
+
+                // 2. Siber Parçacıklar ve Çizgiler (Hızlı Kare Matematik)
+                for (let i = 0; i < particles.length; i++) {
+                    let p = particles[i];
+                    p.x += p.vx;
+                    p.y += p.vy;
+
+                    if (p.x < 0 || p.x > winW) p.vx *= -1;
+                    if (p.y < 0 || p.y > winH) p.vy *= -1;
+
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(0, 229, 255, 0.7)';
+                    ctx.fill();
+
+                    for (let j = i + 1; j < particles.length; j++) {
+                        let p2 = particles[j];
+                        let dx = p.x - p2.x;
+                        let dy = p.y - p2.y;
+                        let distSq = dx * dx + dy * dy;
+
+                        if (distSq < 14400) { // 120px mesafe karesi
+                            ctx.beginPath();
+                            ctx.strokeStyle = `rgba(0, 229, 255, ${0.3 * (1 - distSq / 14400)})`;
+                            ctx.lineWidth = 0.8;
+                            ctx.moveTo(p.x, p.y);
+                            ctx.lineTo(p2.x, p2.y);
+                            ctx.stroke();
+                        }
+                    }
+
+                    if (mouse.x !== null) {
+                        let dx = p.x - mouse.x;
+                        let dy = p.y - mouse.y;
+                        let distSq = dx * dx + dy * dy;
+                        if (distSq < 16900) { // 130px mesafe karesi
+                            ctx.beginPath();
+                            ctx.strokeStyle = `rgba(0, 229, 255, ${0.5 * (1 - distSq / 16900)})`;
+                            ctx.lineWidth = 1.2;
+                            ctx.moveTo(p.x, p.y);
+                            ctx.lineTo(mouse.x, mouse.y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+
+                requestAnimationFrame(renderCyberCanvas);
+            }
+            requestAnimationFrame(renderCyberCanvas);
 
 
             // ==========================================
-            // MOBİL MENÜ İÇİN
+            // 3. 3D AVATAR TILT (HAFİF VE AKICI)
             // ==========================================
-            const menuIcon = document.querySelector('#menu-icon');
-            const navbar = document.querySelector('.navbar');
-            menuIcon.addEventListener('click', () => {
-                navbar.classList.toggle('active');
-                const isActive = navbar.classList.contains('active');
-                menuIcon.classList.toggle('bx-x', isActive);
-                menuIcon.classList.toggle('bx-menu', !isActive);
+            const avatarContainer = document.querySelector('.hero-avatar-container');
+            const avatarBox = document.querySelector('.avatar-image-box');
+
+            if (avatarContainer && avatarBox) {
+                let tiltRaf = null;
+                avatarContainer.addEventListener('mousemove', (e) => {
+                    if (tiltRaf) cancelAnimationFrame(tiltRaf);
+                    tiltRaf = requestAnimationFrame(() => {
+                        const rect = avatarContainer.getBoundingClientRect();
+                        const x = e.clientX - rect.left - rect.width / 2;
+                        const y = e.clientY - rect.top - rect.height / 2;
+                        const tiltX = (y / (rect.height / 2)) * -10;
+                        const tiltY = (x / (rect.width / 2)) * 10;
+                        avatarBox.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale3d(1.03, 1.03, 1.03)`;
+                    });
+                }, { passive: true });
+
+                avatarContainer.addEventListener('mouseleave', () => {
+                    avatarBox.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+                });
+            }
+
+
+            // ==========================================
+            // 4. CANLI SAYAÇ (COUNT UP) ANİMASYONU
+            // ==========================================
+            const statNumbers = document.querySelectorAll('.stat-number');
+            let hasCounted = false;
+
+            const startCountUp = () => {
+                statNumbers.forEach(stat => {
+                    const target = parseInt(stat.getAttribute('data-target'), 10);
+                    const duration = 1400;
+                    const stepTime = 30;
+                    const steps = duration / stepTime;
+                    const increment = target / steps;
+                    let current = 0;
+
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= target) {
+                            stat.textContent = target;
+                            clearInterval(timer);
+                        } else {
+                            stat.textContent = Math.floor(current);
+                        }
+                    }, stepTime);
+                });
+            };
+
+            const statsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !hasCounted) {
+                        hasCounted = true;
+                        startCountUp();
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            const statsSection = document.querySelector('.stats-section');
+            if (statsSection) statsObserver.observe(statsSection);
+
+
+            // ==========================================
+            // 5. SCROLL REVEAL (AŞAĞI KAYDIRDIKÇA AÇILMA)
+            // ==========================================
+            const revealElements = document.querySelectorAll('.reveal-on-scroll, .service-box, .project-box, .education .container, .why-card, .testimonial-card');
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                    }
+                });
+            }, { threshold: 0.15 });
+
+            revealElements.forEach(el => {
+                el.classList.add('reveal-on-scroll');
+                revealObserver.observe(el);
             });
 
 
             // ==========================================
-            // SCROLLSPY (AKTİF NAV LİNK DEĞİŞİMİ)
+            // 6. MOBİL MENÜ
+            // ==========================================
+            const menuIcon = document.querySelector('#menu-icon');
+            const navbar = document.querySelector('.navbar');
+            if (menuIcon && navbar) {
+                menuIcon.addEventListener('click', () => {
+                    navbar.classList.toggle('active');
+                    const isActive = navbar.classList.contains('active');
+                    menuIcon.classList.toggle('bx-x', isActive);
+                    menuIcon.classList.toggle('bx-menu', !isActive);
+                });
+                document.querySelectorAll('.navbar a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navbar.classList.remove('active');
+                        menuIcon.classList.remove('bx-x');
+                        menuIcon.classList.add('bx-menu');
+                    });
+                });
+            }
+
+
+            // ==========================================
+            // 7. SCROLLSPY (THROTTLED AKTİF NAV LİNKİ)
             // ==========================================
             let sections = document.querySelectorAll('section');
             let navLinks = document.querySelectorAll('header nav a');
-            window.onscroll = () => {
-                sections.forEach(sec => {
-                    let top = window.scrollY;
-                    let offset = sec.offsetTop - 150;
-                    let height = sec.offsetHeight;
-                    let id = sec.getAttribute('id');
-                    if (top >= offset && top < offset + height) {
-                        navLinks.forEach(links => {
-                            links.classList.remove('active');
-                            const targetLink = document.querySelector('header nav a[href*=' + id + ']');
-                            if(targetLink) targetLink.classList.add('active');
+            let isScrollTicking = false;
+
+            window.addEventListener('scroll', () => {
+                if (!isScrollTicking) {
+                    requestAnimationFrame(() => {
+                        let top = window.scrollY;
+                        sections.forEach(sec => {
+                            let offset = sec.offsetTop - 180;
+                            let height = sec.offsetHeight;
+                            let id = sec.getAttribute('id');
+                            if (top >= offset && top < offset + height) {
+                                navLinks.forEach(links => {
+                                    links.classList.remove('active');
+                                    const targetLink = document.querySelector('header nav a[href*=' + id + ']');
+                                    if(targetLink) targetLink.classList.add('active');
+                                });
+                            }
                         });
-                    }
-                });
-            };
+                        isScrollTicking = false;
+                    });
+                    isScrollTicking = true;
+                }
+            }, { passive: true });
 
 
             // ==========================================
-            // MODAL PENCERESİ VE SLIDER MOTORU
+            // 8. PROJE MODAL PENCERESİ VE SLIDER MOTORU
             // ==========================================
             const modal = document.getElementById('general-project-modal');
-            const modalClose = modal.querySelector('.modal-close');
+            const modalClose = modal?.querySelector('.modal-close');
             const modalSingleImg = document.getElementById('modal-single-image');
             const modalSlider = document.getElementById('modal-slider');
             const modalBeforeImg = document.getElementById('modal-before-image');
@@ -1065,62 +2188,160 @@ Teknoloji ve güvenliği bir araya getirerek, dijital dünyada güçlü, gerçek
                     const desc = btn.getAttribute('data-description');
                     const tech = btn.getAttribute('data-tech');
 
-                    modalTitle.innerText = title || '';
-                    modalDesc.innerText = desc || '';
-                    modalTech.innerText = tech || '';
+                    if (modalTitle) modalTitle.innerText = title || '';
+                    if (modalDesc) modalDesc.innerText = desc || '';
+                    if (modalTech) modalTech.innerText = tech || '';
 
-                    if (beforeImgSrc && afterImgSrc) {
-                        modalSingleImg.style.display = 'none';
+                    if (beforeImgSrc && afterImgSrc && modalSlider) {
+                        if (modalSingleImg) modalSingleImg.style.display = 'none';
                         modalSlider.style.display = 'block';
-                        modalBeforeImg.src = beforeImgSrc;
-                        modalAfterImg.src = afterImgSrc;
+                        if (modalBeforeImg) modalBeforeImg.src = beforeImgSrc;
+                        if (modalAfterImg) modalAfterImg.src = afterImgSrc;
                         
                         const beforeContainer = modalSlider.querySelector('.before-image-container');
                         const handle = modalSlider.querySelector('.slider-handle');
-                        beforeContainer.style.width = '50%';
-                        handle.style.left = '50%';
-                    } else {
-                        modalSlider.style.display = 'none';
+                        if (beforeContainer) beforeContainer.style.width = '50%';
+                        if (handle) handle.style.left = '50%';
+                    } else if (modalSingleImg) {
+                        if (modalSlider) modalSlider.style.display = 'none';
                         modalSingleImg.style.display = 'block';
                         modalSingleImg.src = afterImgSrc || '';
                     }
 
-                    modal.style.display = 'flex';
+                    if (modal) modal.style.display = 'flex';
                 });
             });
 
-            modalClose.addEventListener('click', () => { modal.style.display = 'none'; });
-            window.addEventListener('click', (e) => { if (e.target === modal) modal.style.display = 'none'; });
+            if (modalClose) {
+                modalClose.addEventListener('click', () => { if (modal) modal.style.display = 'none'; });
+            }
+            window.addEventListener('click', (e) => { 
+                if (modal && e.target === modal) modal.style.display = 'none'; 
+            });
 
             // BEFORE & AFTER SLIDER SÜRÜKLEME MANTIĞI
             let isDragging = false;
-            
-            const startDragging = () => { isDragging = true; };
-            const stopDragging = () => { isDragging = false; };
-            
-            const onDragging = (e) => {
-                if (!isDragging) return;
+            if (modalSlider) {
+                const startDragging = () => { isDragging = true; };
+                const stopDragging = () => { isDragging = false; };
                 
-                const rect = modalSlider.getBoundingClientRect();
-                const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-                let x = clientX - rect.left;
-                
-                if (x < 0) x = 0;
-                if (x > rect.width) x = rect.width;
-                
-                const percentage = (x / rect.width) * 100;
-                
-                modalSlider.querySelector('.before-image-container').style.width = `${percentage}%`;
-                modalSlider.querySelector('.slider-handle').style.left = `${percentage}%`;
+                const onDragging = (e) => {
+                    if (!isDragging) return;
+                    const rect = modalSlider.getBoundingClientRect();
+                    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+                    let x = clientX - rect.left;
+                    if (x < 0) x = 0;
+                    if (x > rect.width) x = rect.width;
+                    const percentage = (x / rect.width) * 100;
+                    const beforeContainer = modalSlider.querySelector('.before-image-container');
+                    const handle = modalSlider.querySelector('.slider-handle');
+                    if (beforeContainer) beforeContainer.style.width = `${percentage}%`;
+                    if (handle) handle.style.left = `${percentage}%`;
+                };
+
+                modalSlider.addEventListener('mousedown', startDragging);
+                window.addEventListener('mouseup', stopDragging);
+                modalSlider.addEventListener('mousemove', onDragging);
+
+                modalSlider.addEventListener('touchstart', startDragging);
+                window.addEventListener('touchend', stopDragging);
+                modalSlider.addEventListener('touchmove', onDragging);
+            }
+
+
+            // ==========================================
+            // 9. İNTERAKTİF FİYAT & TEKLİF HESAPLAYICI MOTORU
+            // ==========================================
+            const calcData = {
+                web: {
+                    title: "1. Web Sitesi İhtiyacınızı Seçin:",
+                    options: [
+                        { id: "web_corp", name: "Kurumsal Tanıtım Sitesi", desc: "Mobil uyumlu, 5-7 sayfa, SEO altyapılı ve iletişim formlu modern web sitesi.", price: "₺7.500 - ₺12.000", tag: "Popüler" },
+                        { id: "web_ecom", name: "E-Ticaret & Satış Sitesi", desc: "Kredi kartı/ödeme entegrasyonu, ürün yönetimi, sipariş takibi ve SSL.", price: "₺16.000 - ₺26.000", tag: "Kapsamlı" },
+                        { id: "web_landing", name: "Landing Page & Portfolyo", desc: "Tek sayfa, yüksek dönüşümlü, modern ve hızlı ürün/hizmet tanıtımı.", price: "₺4.500 - ₺7.500", tag: "Hızlı Teslim" },
+                        { id: "web_custom", name: "Özel Web Portalı / Panel", desc: "İşletmenize özel yönetim paneli, veritabanı ve API entegrasyonu.", price: "₺20.000+", tag: "Özel Çözüm" }
+                    ]
+                },
+                cctv: {
+                    title: "1. Güvenlik Kamerası İhtiyacınızı Seçin:",
+                    options: [
+                        { id: "cctv_small", name: "2-4 Kameralı Ev / Ofis Paketi", desc: "Gece görüşlü Full HD IP kameralar, NVR kayıt cihazı, HDD ve tam montaj.", price: "₺9.500 - ₺15.000", tag: "Ekonomik" },
+                        { id: "cctv_mid", name: "5-8 Kameralı İş Yeri Paketi", desc: "Geniş açılı IP kameralar, PoE Switch, 7/24 telefon canlı izleme ve kurulum.", price: "₺18.000 - ₺32.000", tag: "En Çok Tercih Edilen" },
+                        { id: "cctv_large", name: "9-16 Kameralı Tesis / Bina", desc: "Yüksek kapasiteli NVR, uzun süreli kayıt depolama, yapısal kablolama.", price: "₺38.000 - ₺65.000", tag: "Tam Güvenlik" },
+                        { id: "cctv_service", name: "Mevcut Sistem Bakım / Yenileme", desc: "Arızalı kamera değişimi, kablo yenileme, kayıt cihazı onarımı ve ayarlar.", price: "₺3.500 - ₺7.500", tag: "Servis" }
+                    ]
+                },
+                network: {
+                    title: "1. Ağ & Altyapı İhtiyacınızı Seçin:",
+                    options: [
+                        { id: "net_rack", name: "Sistem Kabini & Patch Panel Düzeni", desc: "Dağınık kabloların etiketlenip toparlanması, switch ve patch panel montajı.", price: "₺3.500 - ₺7.500", tag: "Hızlı Çözüm" },
+                        { id: "net_cable", name: "Sıfırdan Yapısal Kablolama (Cat6/Fiber)", desc: "Kanal çekimi, priz sonlandırmaları, fiber sonlandırma ve hat testleri.", price: "₺8.500 - ₺19.000", tag: "Altyapı" },
+                        { id: "net_wifi", name: "Kesintisiz Ofis Wi-Fi (Access Point)", desc: "Ölü nokta bırakmayan profesyonel PoE Access Point ve Mesh Wi-Fi kurulumu.", price: "₺4.500 - ₺9.500", tag: "Yüksek Hız" },
+                        { id: "net_security", name: "Kurumsal Ağ Güvenliği & VLAN", desc: "Misafir ağı izolasyonu, firewall, güvenli switch yapılandırması.", price: "₺10.000 - ₺22.000", tag: "Siber Güvenlik" }
+                    ]
+                }
             };
 
-            modalSlider.addEventListener('mousedown', startDragging);
-            window.addEventListener('mouseup', stopDragging);
-            modalSlider.addEventListener('mousemove', onDragging);
+            let currentService = "web";
+            let selectedOption = calcData.web.options[0];
 
-            modalSlider.addEventListener('touchstart', startDragging);
-            window.addEventListener('touchend', stopDragging);
-            modalSlider.addEventListener('touchmove', onDragging);
+            const calcOptionsContainer = document.getElementById('calc-options-container');
+            const calcStepTitle = document.getElementById('calc-step-title');
+            const calcPriceDisplay = document.getElementById('calc-price-display');
+            const calcSendWhatsapp = document.getElementById('calc-send-whatsapp');
+            const calcTabBtns = document.querySelectorAll('.calc-tab-btn');
+
+            function updateCalculatorUI() {
+                const serviceInfo = calcData[currentService];
+                if (!serviceInfo) return;
+
+                if (calcStepTitle) calcStepTitle.textContent = serviceInfo.title;
+                if (!calcOptionsContainer) return;
+
+                calcOptionsContainer.innerHTML = '';
+
+                serviceInfo.options.forEach((opt) => {
+                    const card = document.createElement('div');
+                    card.className = `calc-option-card ${opt.id === selectedOption.id ? 'selected' : ''}`;
+                    card.innerHTML = `
+                        <h4>${opt.name} <span style="font-size: 1.1rem; color: var(--main-color);">${opt.tag}</span></h4>
+                        <p>${opt.desc}</p>
+                    `;
+                    card.addEventListener('click', () => {
+                        selectedOption = opt;
+                        updateCalculatorUI();
+                    });
+                    calcOptionsContainer.appendChild(card);
+                });
+
+                if (calcPriceDisplay) {
+                    calcPriceDisplay.textContent = selectedOption.price;
+                }
+
+                if (calcSendWhatsapp) {
+                    const serviceNames = { web: "Web Tasarımı", cctv: "Güvenlik Kamerası (CCTV)", network: "Ağ & Kabin Düzenleme" };
+                    const textMsg = encodeURIComponent(
+                        `Merhaba Akın Bey, akintopal.com.tr üzerindeki fiyat robotundan bir teklif oluşturdum:\n\n` +
+                        `📌 Hizmet: ${serviceNames[currentService]}\n` +
+                        `📋 Paket: ${selectedOption.name}\n` +
+                        `💰 Tahmini Bütçe: ${selectedOption.price}\n\n` +
+                        `Bu proje hakkında detaylı görüşebilir miyiz?`
+                    );
+                    calcSendWhatsapp.href = `https://wa.me/905338849748?text=${textMsg}`;
+                }
+            }
+
+            calcTabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    calcTabBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentService = btn.getAttribute('data-service');
+                    selectedOption = calcData[currentService].options[0];
+                    updateCalculatorUI();
+                });
+            });
+
+            updateCalculatorUI();
         });
     </script>
 </body>
