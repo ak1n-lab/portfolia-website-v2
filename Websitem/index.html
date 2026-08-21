@@ -2685,7 +2685,9 @@ Ayrıca karmaşık ağ kabinlerini ve fiber altyapılarını profesyonel standar
                             }
 
                             const card = document.createElement('div');
-                            card.className = 'testimonial-card reveal-on-scroll active';
+                            card.className = 'testimonial-card reveal-on-scroll revealed';
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
                             card.innerHTML = `
                                 <div class="stars">
                                     ${starsHtml}
@@ -2700,10 +2702,13 @@ Ayrıca karmaşık ağ kabinlerini ve fiber altyapılarını profesyonel standar
                                 </div>
                             `;
                             testimonialsGrid.insertBefore(card, testimonialsGrid.firstChild);
+                            if (typeof revealObserver !== 'undefined') {
+                                revealObserver.observe(card);
+                            }
                         });
                     }
                 } catch (e) {
-                    console.log("Dinamik yorum yükleme:", e);
+                    console.log("Dinamik yorum yükleme hatası:", e);
                 }
             }
 
