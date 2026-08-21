@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://akintopal.com.tr/sitemap.xml
+Sitemap: https://www.akintopal.com.tr/sitemap.xml

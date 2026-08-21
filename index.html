@@ -38,42 +38,86 @@
     
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-    <!-- Google Zengin Sonuç & Yerel İşletme SEO (Schema.org) -->
+    <link rel="canonical" href="https://akintopal.com.tr/">
+
+    <!-- Google Zengin Sonuç & Kişi / Marka Varlık SEO (Schema.org) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "MAT Labs - Güvenlik Kamerası & Network Sistemleri",
-      "alternateName": "Akın Topal - Web Tasarım & Güvenlik Sistemleri KKTC",
-      "image": "https://akintopal.com.tr/akintopal/akin-topal-profil.jpg",
-      "url": "https://akintopal.com.tr",
-      "telephone": "+905338849748",
-      "hasMap": "https://share.google/FmD3PsVkEpFHqRebX",
-      "sameAs": [
-        "https://share.google/FmD3PsVkEpFHqRebX",
-        "https://www.linkedin.com/in/akın-topal-8bbb0b389/",
-        "https://github.com/ak1n-lab",
-        "https://instagram.com/akintopalll"
-      ],
-      "priceRange": "$$",
-      "description": "MAT Labs güvencesiyle Akın Topal tarafından KKTC, Gazimağusa, Girne ve Lefkoşa genelinde sunulan profesyonel Web Tasarımı, IP/CCTV Güvenlik Kamerası Kurulumu, Ağ ve Yapısal Kablolama Hizmetleri.",
-      "areaServed": [
-        { "@type": "City", "name": "Gazimağusa" },
-        { "@type": "City", "name": "Girne" },
-        { "@type": "City", "name": "Lefkoşa" },
-        { "@type": "City", "name": "İskele" },
-        { "@type": "Country", "name": "Kuzey Kıbrıs Türk Cumhuriyeti" }
-      ],
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Gazimağusa",
-        "addressCountry": "CY"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5.0",
-        "reviewCount": "32"
-      }
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://akintopal.com.tr/#person",
+          "name": "Akın Topal",
+          "alternateName": ["Akin Topal", "Akın Topal MAT Labs"],
+          "url": "https://akintopal.com.tr",
+          "image": "https://akintopal.com.tr/akintopal/akin-topal-profil.jpg",
+          "jobTitle": "Web Tasarım & Güvenlik Sistemleri Uzmanı",
+          "alumniOf": "Doğu Akdeniz Üniversitesi",
+          "knowsAbout": [
+            "Web Tasarım",
+            "Güvenlik Kamerası Kurulumu (CCTV)",
+            "Ağ ve Yapısal Kablolama",
+            "Sistem Kabini Düzenleme",
+            "Siber Güvenlik"
+          ],
+          "sameAs": [
+            "https://www.linkedin.com/in/akın-topal-8bbb0b389/",
+            "https://github.com/ak1n-lab",
+            "https://instagram.com/akintopalll",
+            "https://twitter.com/akintopalll",
+            "https://share.google/FmD3PsVkEpFHqRebX"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://akintopal.com.tr/#website",
+          "url": "https://akintopal.com.tr",
+          "name": "Akın Topal | Resmi Web Sitesi",
+          "description": "Akın Topal - Web Tasarım, CCTV Güvenlik Kamerası ve Ağ Sistemleri",
+          "publisher": {
+            "@id": "https://akintopal.com.tr/#person"
+          }
+        },
+        {
+          "@type": "LocalBusiness",
+          "@id": "https://akintopal.com.tr/#business",
+          "name": "MAT Labs - Akın Topal",
+          "alternateName": "Akın Topal Bilişim & Güvenlik Sistemleri",
+          "image": "https://akintopal.com.tr/akintopal/akin-topal-profil.jpg",
+          "url": "https://akintopal.com.tr",
+          "telephone": "+905338849748",
+          "hasMap": "https://share.google/FmD3PsVkEpFHqRebX",
+          "founder": {
+            "@id": "https://akintopal.com.tr/#person"
+          },
+          "sameAs": [
+            "https://share.google/FmD3PsVkEpFHqRebX",
+            "https://www.linkedin.com/in/akın-topal-8bbb0b389/",
+            "https://github.com/ak1n-lab",
+            "https://instagram.com/akintopalll"
+          ],
+          "priceRange": "$$",
+          "description": "Akın Topal güvencesiyle KKTC, Gazimağusa, Girne ve Lefkoşa genelinde sunulan profesyonel Web Tasarımı, IP/CCTV Güvenlik Kamerası Kurulumu, Ağ ve Yapısal Kablolama Hizmetleri.",
+          "areaServed": [
+            { "@type": "City", "name": "Gazimağusa" },
+            { "@type": "City", "name": "Girne" },
+            { "@type": "City", "name": "Lefkoşa" },
+            { "@type": "City", "name": "İskele" },
+            { "@type": "Country", "name": "Kuzey Kıbrıs Türk Cumhuriyeti" }
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Gazimağusa",
+            "addressCountry": "CY"
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5.0",
+            "reviewCount": "32"
+          }
+        }
+      ]
     }
     </script>
 
@@ -1599,7 +1643,7 @@
     <section class="home" id="home">
         <div class="home-content reveal-on-scroll">
             <div class="hero-badge-tag"><i class='bx bxs-circle pulse-dot'></i> KKTC & Kıbrıs Genelinde Hizmet | Yeni Projelere Açık</div>
-            <h1>Merhaba, ben <span class="gradient-text">Akın</span></h1>
+            <h1>Merhaba, ben <span class="gradient-text">Akın Topal</span></h1>
             <h3>Ben bir <span class="typing-text gradient-text"></span><span class="typing-cursor">|</span></h3>
             <p>KKTC genelinde modern web siteleri tasarlıyor, ev ve iş yerlerine yüksek çözünürlüklü güvenlik kamerası (CCTV) sistemleri kuruyor ve kurumsal ağ altyapılarını optimize ediyorum.</p>
             <div class="hero-action-buttons">
