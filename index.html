@@ -195,25 +195,27 @@
             width: 100%;
             top: 0;
             left: 0;
-            padding: 2rem 9%;
-            background: rgba(8, 8, 8, 0.5);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            padding: 1.5rem 5%;
+            background: rgba(8, 8, 8, 0.88);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            border-bottom: 1px solid rgba(0, 229, 255, 0.05);
+            border-bottom: 1px solid rgba(0, 229, 255, 0.08);
+            transition: all 0.3s ease;
         }
         .logo{
-            font-size: 3rem;
+            font-size: 2.6rem;
             color: var(--text-color);
             font-weight: 800;
             cursor: pointer;
             transition: 0.3s ease-in-out;
+            white-space: nowrap;
         }
         .logo:hover{
-            transform: scale(1.1);
+            transform: scale(1.06);
         }
         .gradient-text{
             background: linear-gradient(270deg, #00E5FF 10%, #0052D4 100%); 
@@ -223,21 +225,28 @@
         }
 
         /* NAVBAR */
+        .navbar {
+            display: flex;
+            align-items: center;
+            gap: 2.2rem;
+        }
         .navbar a{
-            font-size: 1.8rem;
+            font-size: 1.55rem;
             color: var(--text-color);
-            margin-left: 4rem;
+            margin-left: 0;
             font-weight: 500;
             transition: 0.3s ease-in-out;
-            border-bottom: 3px solid transparent;
+            border-bottom: 2px solid transparent;
+            white-space: nowrap;
+            padding: 0.4rem 0;
         }
         .navbar a:hover,
         .navbar a.active{
             color: var(--main-color);
-            border-bottom: 3px solid var(--main-color);
+            border-bottom: 2px solid var(--main-color);
         }
         #menu-icon{
-            font-size: 3.6rem;
+            font-size: 3.4rem;
             color: var(--main-color);
             cursor: pointer;
             display: none;
@@ -247,20 +256,21 @@
         .lang-switcher {
             display: inline-flex;
             align-items: center;
-            gap: 0.4rem;
+            gap: 0.3rem;
             background: rgba(16, 20, 28, 0.85);
-            padding: 0.4rem 0.8rem;
+            padding: 0.35rem 0.7rem;
             border-radius: 2rem;
             border: 1px solid rgba(0, 229, 255, 0.25);
             backdrop-filter: blur(8px);
+            flex-shrink: 0;
         }
         .lang-btn {
             background: transparent;
             color: #94a3b8;
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             font-weight: 700;
             cursor: pointer;
-            padding: 0.3rem 0.9rem;
+            padding: 0.25rem 0.8rem;
             border-radius: 1.2rem;
             transition: all 0.3s ease;
             outline: none;
@@ -335,7 +345,7 @@
             justify-content: center; 
             gap: 8rem;
             min-height: 100vh;
-            padding-top: 12rem;
+            padding-top: 15rem;
         }
         .home-content {
             max-width: 680px;
@@ -1572,38 +1582,31 @@
             .badge-top-right { right: -12%; }
             .badge-bottom-left { left: -6%; }
         }
-        @media (max-width: 991px) {
-            .header { padding: 2rem 3%; }
-            section { padding: 10rem 3% 2rem; }
-            .services { padding-bottom: 7rem; }
-            .projects { padding-bottom: 7rem; }
-            .contact { min-height: auto; }
-            .footer { padding: 2rem 3%; }
-            .home-img img { width: 45vw; }
-            .badge-top-left { left: -6%; }
-            .badge-top-right { right: -8%; }
-            .badge-bottom-left { left: -4%; }
-        }
-        @media (max-width: 768px) {
+        @media (max-width: 1080px) {
+            .header { padding: 1.5rem 4%; }
             #menu-icon { display: block; }
             .navbar {
                 position: absolute;
                 top: 100%;
                 left: -100%;
                 width: 100%;
-                padding: 1rem 3%;
-                background: var(--bg-color);
-                border-top: .1rem solid rgba(0,0,0, .2);
-                box-shadow: 0 .5rem 1rem rgba(0,0,0, .2);
-                transition: .3s ease-in-out;
+                padding: 2rem 5%;
+                background: rgba(10, 10, 10, 0.98);
+                backdrop-filter: blur(15px);
+                border-top: .1rem solid rgba(0, 229, 255, 0.15);
+                box-shadow: 0 .8rem 2rem rgba(0,0,0, .6);
+                transition: .3s cubic-bezier(0.16, 1, 0.3, 1);
+                flex-direction: column;
+                gap: 0;
+                align-items: flex-start;
             }
             .navbar.active { left: 0; }
-            .navbar a { display: block; font-size: 2rem; margin: 3rem 0; }
-            .home { flex-direction: column-reverse; text-align: center; gap: 4rem; padding-top: 10rem; }
-            .home-content h1 { font-size: 4.6rem; }
+            .navbar a { display: block; font-size: 1.8rem; margin: 1.2rem 0; width: 100%; }
+            .home { flex-direction: column-reverse; text-align: center; gap: 4rem; padding-top: 13rem; }
+            .home-content h1 { font-size: 4.4rem; }
             .home-content h3 { font-size: 2.5rem; justify-content: center; }
-            .home-img img { width: 70vw; margin-top: 0; }
-            .hero-avatar-container { width: 65vw; min-width: 260px; margin: 2rem auto; }
+            .home-img img { width: 65vw; margin-top: 0; }
+            .hero-avatar-container { width: 60vw; min-width: 260px; margin: 1rem auto; }
             .hero-action-buttons { justify-content: center; }
             .social-icon { justify-content: center; }
             .floating-badge { padding: 0.8rem 1.2rem; gap: 0.8rem; }
@@ -1710,24 +1713,24 @@
                 <div class="floating-badge badge-top-left">
                     <div class="badge-icon"><i class='bx bx-shield-quarter'></i></div>
                     <div class="badge-text">
-                        <span class="badge-title">Siber Güvenlik</span>
-                        <span class="badge-sub">Ağ & Koruma</span>
+                        <span class="badge-title" data-i18n="badge_cyber_title">Siber Güvenlik</span>
+                        <span class="badge-sub" data-i18n="badge_cyber_sub">Ağ & Koruma</span>
                     </div>
                 </div>
 
                 <div class="floating-badge badge-top-right">
                     <div class="badge-icon"><i class='bx bx-code-alt'></i></div>
                     <div class="badge-text">
-                        <span class="badge-title">Web Tasarım</span>
-                        <span class="badge-sub">Modern & Hızlı UI</span>
+                        <span class="badge-title" data-i18n="badge_web_title">Web Tasarım</span>
+                        <span class="badge-sub" data-i18n="badge_web_sub">Modern & Hızlı UI</span>
                     </div>
                 </div>
 
                 <div class="floating-badge badge-bottom-left">
                     <div class="badge-icon"><i class='bx bx-cctv'></i></div>
                     <div class="badge-text">
-                        <span class="badge-title">7/24 Kamera</span>
-                        <span class="badge-sub">Güvenlik Sistemleri</span>
+                        <span class="badge-title" data-i18n="badge_cctv_title">7/24 Kamera</span>
+                        <span class="badge-sub" data-i18n="badge_cctv_sub">Güvenlik Sistemleri</span>
                     </div>
                 </div>
             </div>
@@ -1743,7 +1746,7 @@
                     <div class="stat-number-wrap">
                         <span class="stat-number" data-target="4">0</span><span class="stat-plus">+</span>
                     </div>
-                    <p>Yıllık Deneyim</p>
+                    <p data-i18n="stat_exp">Yıllık Deneyim</p>
                 </div>
             </div>
             <div class="stat-card reveal-on-scroll">
@@ -1752,7 +1755,7 @@
                     <div class="stat-number-wrap">
                         <span class="stat-number" data-target="25">0</span><span class="stat-plus">+</span>
                     </div>
-                    <p>Tamamlanan Proje</p>
+                    <p data-i18n="stat_proj">Tamamlanan Proje</p>
                 </div>
             </div>
             <div class="stat-card reveal-on-scroll">
@@ -1761,7 +1764,7 @@
                     <div class="stat-number-wrap">
                         <span class="stat-number" data-target="100">0</span><span class="stat-plus">%</span>
                     </div>
-                    <p>Müşteri Memnuniyeti</p>
+                    <p data-i18n="stat_sat">Müşteri Memnuniyeti</p>
                 </div>
             </div>
             <div class="stat-card reveal-on-scroll">
@@ -1770,7 +1773,7 @@
                     <div class="stat-number-wrap">
                         <span class="stat-text">7/24</span>
                     </div>
-                    <p>Güvenlik & Destek</p>
+                    <p data-i18n="stat_sup">Güvenlik & Destek</p>
                 </div>
             </div>
         </div>
@@ -1778,51 +1781,49 @@
 
     <section class="about" id="about">
         <div class="about-text reveal-on-scroll">
-            <h2 class="heading">Hakkımda <span class="gradient-text">Ben Kimim?</span></h2>
-            <h3>Sistemi kur, güvenliği sağla, dijitalde fark yarat!</h3>
-            <p>Web tasarımı, güvenlik kamerası kurulumu ve kurumsal ağ altyapısı alanlarında profesyonel hizmet sunuyorum.
-Modern, kullanıcı dostu ve SEO odaklı hızlı web siteleri geliştirirken; ev ve iş yerlerine yüksek çözünürlüklü IP/CCTV güvenlik kamerası sistemleri kurarak alanlarınızı 7/24 koruma altına alıyorum.
-Ayrıca karmaşık ağ kabinlerini ve fiber altyapılarını profesyonel standartlarda düzenleyerek kesintisiz ve güvenli bir dijital yapı inşa ediyorum.</p>
-            <a href="#contact" class="btn">Benimle İletişime Geç</a>
+            <h2 class="heading" data-i18n="about_heading">Hakkımda <span class="gradient-text">Ben Kimim?</span></h2>
+            <h3 data-i18n="about_sub">Sistemi kur, güvenliği sağla, dijitalde fark yarat!</h3>
+            <p data-i18n="about_p">Web tasarımı, güvenlik kamerası kurulumu ve kurumsal ağ altyapısı alanlarında profesyonel hizmet sunuyorum. Modern, kullanıcı dostu ve SEO odaklı hızlı web siteleri geliştirirken; ev ve iş yerlerine yüksek çözünürlüklü IP/CCTV güvenlik kamerası sistemleri kurarak alanlarınızı 7/24 koruma altına alıyorum. Ayrıca karmaşık ağ kabinlerini ve fiber altyapılarını profesyonel standartlarda düzenleyerek kesintisiz ve güvenli bir dijital yapı inşa ediyorum.</p>
+            <a href="#contact" class="btn" data-i18n="about_btn">Benimle İletişime Geç</a>
         </div>
     </section>
 
     <section class="education" id="education">
-        <h2 class="heading">Kariyer <span class="gradient-text">Yolculuğum</span></h2>
+        <h2 class="heading" data-i18n="edu_heading">Kariyer <span class="gradient-text">Yolculuğum</span></h2>
         <div class="timeline">
             <div class="container right reveal-on-scroll">
                 <div class="content">
-                    <div class="tag"><i class='bx bxs-graduation'></i><h2>Lise</h2></div>
+                    <div class="tag"><i class='bx bxs-graduation'></i><h2 data-i18n="edu_hs_tag">Lise</h2></div>
                     <div class="description">
-                        <p><strong>Ağ İşletmenliği ve Siber Güvenlik</strong> - Mustafa Kemal Mesleki ve Teknik Anadolu Lisesi</p>
+                        <p><strong data-i18n="edu_hs_title">Ağ İşletmenliği ve Siber Güvenlik</strong> - <span data-i18n="edu_hs_school">Mustafa Kemal Mesleki ve Teknik Anadolu Lisesi</span></p>
                         <p>2020 - 2024</p>
                     </div>
                 </div>
             </div>
             <div class="container left reveal-on-scroll">
                 <div class="content">
-                    <div class="tag"><i class='bx bxs-school'></i><h2>Stajyer Teknisyen</h2></div>
+                    <div class="tag"><i class='bx bxs-school'></i><h2 data-i18n="edu_intern_tag">Stajyer Teknisyen</h2></div>
                     <div class="description">
-                        <p><strong>Tekno Marks Ltd.Şti.</strong> - Bilişim ve kamera sistemleri üzerine saha ve donanım deneyimi.</p>
+                        <p><strong>Tekno Marks Ltd.Şti.</strong> - <span data-i18n="edu_intern_desc">Bilişim ve kamera sistemleri üzerine saha ve donanım deneyimi.</span></p>
                         <p>2023 - 2024</p>
                     </div>
                 </div>
             </div>
             <div class="container right reveal-on-scroll">
                 <div class="content">
-                    <div class="tag"><i class='bx bxs-briefcase'></i><h2>Üniversite</h2></div>
+                    <div class="tag"><i class='bx bxs-briefcase'></i><h2 data-i18n="edu_uni_tag">Üniversite</h2></div>
                     <div class="description">
-                        <p><strong>Bilgisayar Programcılığı</strong> - Doğu Akdeniz Üniversitesi</p>
+                        <p><strong data-i18n="edu_uni_title">Bilgisayar Programcılığı</strong> - <span data-i18n="edu_uni_school">Doğu Akdeniz Üniversitesi</span></p>
                         <p>2025 - 2027</p>
                     </div>
                 </div>
             </div>
             <div class="container left reveal-on-scroll">
                 <div class="content">
-                    <div class="tag"><i class='bx bxs-briefcase'></i><h2>IT Uzman Yardımcısı</h2></div>
+                    <div class="tag"><i class='bx bxs-briefcase'></i><h2 data-i18n="edu_job_tag">IT Uzman Yardımcısı</h2></div>
                     <div class="description">
-                        <p><strong>Four Vision Development</strong> - KKTC'nin köklü lüks yaşam projelerinde IT ve altyapı yönetimi.</p>
-                        <p>2024 - Günümüz</p>
+                        <p><strong>Four Vision Development</strong> - <span data-i18n="edu_job_desc">KKTC'nin köklü lüks yaşam projelerinde IT ve altyapı yönetimi.</span></p>
+                        <p data-i18n="edu_job_date">2024 - Günümüz</p>
                     </div>
                 </div>
             </div>
@@ -1886,8 +1887,8 @@ Ayrıca karmaşık ağ kabinlerini ve fiber altyapılarını profesyonel standar
             <div class="project-box reveal-on-scroll">
                 <img src="projeler/after.jpg" alt="Ağ Altyapısı ve Sistem Kabini Düzenleme" loading="lazy" decoding="async">
                 <div class="project-layer">
-                    <h4>Ağ Altyapısı Düzenleme</h4>
-                    <p>Müşteri isteğine özel kabin öncesi ve sonrası</p>
+                    <h4 data-i18n="proj_1_title">Ağ Altyapısı Düzenleme</h4>
+                    <p data-i18n="proj_1_sub">Müşteri isteğine özel kabin öncesi ve sonrası</p>
                     <a href="#" class="project-detail-btn" 
                        data-before-image="projeler/before.jpg" 
                        data-after-image="projeler/after.jpg" 
@@ -1902,8 +1903,8 @@ Ayrıca karmaşık ağ kabinlerini ve fiber altyapılarını profesyonel standar
             <div class="project-box reveal-on-scroll">
                 <img src="projeler/cctv.jpg" alt="Fiber Optik ve Ağ Yönetim Paneli" loading="lazy" decoding="async">
                 <div class="project-layer">
-                    <h4>Fiber Optik ve Ağ Kabini Düzenleme</h4>
-                    <p>Kurumsal Ağ Kabini Optimizasyonu</p>
+                    <h4 data-i18n="proj_2_title">Fiber Optik ve Ağ Kabini</h4>
+                    <p data-i18n="proj_2_sub">Kurumsal Ağ Kabini Optimizasyonu</p>
                     <a href="#" class="project-detail-btn" 
                        data-after-image="projeler/cctv.jpg" 
                        data-title="Fiber Optik ve Ağ Yönetim Paneli" 
@@ -1917,8 +1918,8 @@ Ayrıca karmaşık ağ kabinlerini ve fiber altyapılarını profesyonel standar
             <div class="project-box reveal-on-scroll">
                 <img src="projeler/sapkali.jpg" alt="Yapısal Cat6 Kablolama ve Data Kabini" loading="lazy" decoding="async">
                 <div class="project-layer">
-                    <h4>Yapısal Kablolama ve Altyapı</h4>
-                    <p>Data Sistem Kabini Düzeni</p>
+                    <h4 data-i18n="proj_3_title">Yapısal Kablolama ve Altyapı</h4>
+                    <p data-i18n="proj_3_sub">Data Sistem Kabini Düzeni</p>
                     <a href="#" class="project-detail-btn" 
                        data-after-image="projeler/sapkali.jpg" 
                        data-title="Data Sistem Kabini Düzeni Detayları" 
@@ -1932,8 +1933,8 @@ Ayrıca karmaşık ağ kabinlerini ve fiber altyapılarını profesyonel standar
             <div class="project-box reveal-on-scroll">
                 <img src="projeler/akincctv.jpg" alt="IP Kamera Güvenlik Sistemi Kurulumu" loading="lazy" decoding="async">
                 <div class="project-layer">
-                    <h4>IP Kamera Sistemi Kurulumu</h4>
-                    <p>7/24 Kesintisiz Güvenlik Kamera Projesi</p>
+                    <h4 data-i18n="proj_4_title">IP Kamera Sistemi Kurulumu</h4>
+                    <p data-i18n="proj_4_sub">7/24 Kesintisiz Güvenlik Kamera Projesi</p>
                     <a href="#" class="project-detail-btn" 
                        data-after-image="projeler/akincctv.jpg" 
                        data-title="IP Kamera Sistemi Kurulum Detayları" 
@@ -1987,11 +1988,11 @@ Ayrıca karmaşık ağ kabinlerini ve fiber altyapılarını profesyonel standar
     <section class="testimonials" id="testimonials">
         <div class="testimonials-header">
             <div>
-                <h2 class="heading" style="margin-bottom: 0.5rem; text-align: left;">Müşteri <span class="gradient-text">Değerlendirmeleri</span></h2>
-                <p style="font-size: 1.4rem; color: #94a3b8;">Gerçek müşteri deneyimleri ve tamamlanan projeler</p>
+                <h2 class="heading" data-i18n="test_heading" style="margin-bottom: 0.5rem; text-align: left;">Müşteri <span class="gradient-text">Değerlendirmeleri</span></h2>
+                <p data-i18n="test_sub" style="font-size: 1.4rem; color: #94a3b8;">Gerçek müşteri deneyimleri ve tamamlanan projeler</p>
             </div>
             <button class="btn btn-review-trigger" id="open-review-modal">
-                <i class='bx bx-edit-alt'></i> Yorum Yaz
+                <i class='bx bx-edit-alt'></i> <span data-i18n="test_btn_write">Yorum Yaz</span>
             </button>
         </div>
 
@@ -2000,12 +2001,12 @@ Ayrıca karmaşık ağ kabinlerini ve fiber altyapılarını profesyonel standar
                 <div class="stars">
                     <i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i>
                 </div>
-                <p class="testimonial-text">"Ofisimizin tüm güvenlik kamerası ve ağ altyapısını Akın Bey kurdu. Kablolar o kadar temiz çekildi ki hiçbir dağınıklık kalmadı. 7/24 telefonumuzdan izleyebiliyoruz. Eline sağlık!"</p>
+                <p class="testimonial-text" data-i18n="test_rev1">"Ofisimizin tüm güvenlik kamerası ve ağ altyapısını Akın Bey kurdu. Kablolar o kadar temiz çekildi ki hiçbir dağınıklık kalmadı. 7/24 telefonumuzdan izleyebiliyoruz. Eline sağlık!"</p>
                 <div class="client-profile">
                     <div class="client-avatar">EK</div>
                     <div class="client-info">
                         <h4>Emre Kaya</h4>
-                        <span>İşletme Sahibi - CCTV & Ağ Projesi</span>
+                        <span data-i18n="test_role1">İşletme Sahibi - CCTV & Ağ Projesi</span>
                     </div>
                 </div>
             </div>
@@ -2014,12 +2015,12 @@ Ayrıca karmaşık ağ kabinlerini ve fiber altyapılarını profesyonel standar
                 <div class="stars">
                     <i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i>
                 </div>
-                <p class="testimonial-text">"Kurumsal web sitemizi sıfırdan hazırladı. Hem mobilde çok hızlı açılıyor hem de tasarımı tam istediğimiz gibi modern oldu. Google'dan müşteri dönüşlerimiz hissedilir şekilde arttı."</p>
+                <p class="testimonial-text" data-i18n="test_rev2">"Kurumsal web sitemizi sıfırdan hazırladı. Hem mobilde çok hızlı açılıyor hem de tasarımı tam istediğimiz gibi modern oldu. Google'dan müşteri dönüşlerimiz hissedilir şekilde arttı."</p>
                 <div class="client-profile">
                     <div class="client-avatar">SD</div>
                     <div class="client-info">
                         <h4>Selin Demir</h4>
-                        <span>Pazarlama Direktörü - Web Tasarımı</span>
+                        <span data-i18n="test_role2">Pazarlama Direktörü - Web Tasarımı</span>
                     </div>
                 </div>
             </div>
@@ -2028,12 +2029,12 @@ Ayrıca karmaşık ağ kabinlerini ve fiber altyapılarını profesyonel standar
                 <div class="stars">
                     <i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i>
                 </div>
-                <p class="testimonial-text">"Veri kabinimizdeki karmaşık kablolar yüzünden sürekli internet kesintisi yaşıyorduk. Patch panelleri baştan etiketleyip düzenledi, sistem saat gibi çalışıyor. Kesinlikle tavsiye ederim."</p>
+                <p class="testimonial-text" data-i18n="test_rev3">"Veri kabinimizdeki karmaşık kablolar yüzünden sürekli internet kesintisi yaşıyorduk. Patch panelleri baştan etiketleyip düzenledi, sistem saat gibi çalışıyor. Kesinlikle tavsiye ederim."</p>
                 <div class="client-profile">
                     <div class="client-avatar">BY</div>
                     <div class="client-info">
                         <h4>Burak Yılmaz</h4>
-                        <span>Teknik Müdür - Ağ Kabini Optimizasyonu</span>
+                        <span data-i18n="test_role3">Teknik Müdür - Ağ Kabini Optimizasyonu</span>
                     </div>
                 </div>
             </div>
@@ -2042,12 +2043,12 @@ Ayrıca karmaşık ağ kabinlerini ve fiber altyapılarını profesyonel standar
                 <div class="stars">
                     <i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i>
                 </div>
-                <p class="testimonial-text">"İş yerimizin kamera sistemi ve network altyapısını sorunsuz teslim etti. İlgi ve profesyonel yaklaşımı için çok teşekkür ederiz."</p>
+                <p class="testimonial-text" data-i18n="test_rev4">"İş yerimizin kamera sistemi ve network altyapısını sorunsuz teslim etti. İlgi ve profesyonel yaklaşımı için çok teşekkür ederiz."</p>
                 <div class="client-profile">
                     <div class="client-avatar">MA</div>
                     <div class="client-info">
                         <h4>Mert Aydın</h4>
-                        <span>Restoran Müdürü - IP Kamera & Ağ</span>
+                        <span data-i18n="test_role4">Restoran Müdürü - IP Kamera & Ağ</span>
                     </div>
                 </div>    
             </div>   
@@ -2057,7 +2058,7 @@ Ayrıca karmaşık ağ kabinlerini ve fiber altyapılarını profesyonel standar
         <div style="text-align: center; margin-top: 4rem;" class="reveal-on-scroll">
             <a href="https://share.google/FmD3PsVkEpFHqRebX" target="_blank" style="display: inline-flex; align-items: center; gap: 1.2rem; background: rgba(0, 229, 255, 0.05); border: 1px solid rgba(0, 229, 255, 0.35); padding: 1.4rem 3rem; border-radius: 4rem; box-shadow: 0 0 25px rgba(0, 229, 255, 0.15); transition: all 0.3s ease; text-decoration: none;" onmouseover="this.style.transform='translateY(-4px)'; this.style.borderColor='var(--main-color)'; this.style.boxShadow='0 0 35px rgba(0, 229, 255, 0.35)'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(0, 229, 255, 0.35)'; this.style.boxShadow='0 0 25px rgba(0, 229, 255, 0.15)'">
                 <i class='bx bxl-google' style="font-size: 2.8rem; color: var(--main-color);"></i>
-                <span style="font-size: 1.55rem; color: #ffffff; font-weight: 600;">
+                <span style="font-size: 1.55rem; color: #ffffff; font-weight: 600;" data-i18n="test_google_btn">
                     <strong style="color: #FFB800; font-size: 1.75rem;">5.0 ★★★★★</strong> Google Haritalar'da İncele & Yorum Yap | <span class="gradient-text">MAT Labs</span>
                 </span>
                 <i class='bx bx-link-external' style="font-size: 2rem; color: var(--main-color); margin-left: 0.5rem;"></i>
@@ -2069,21 +2070,21 @@ Ayrıca karmaşık ağ kabinlerini ve fiber altyapılarını profesyonel standar
     <div class="modal-overlay" id="review-modal-overlay">
         <div class="modal-content review-modal-content">
             <span class="modal-close" id="close-review-modal">&times;</span>
-            <h3 class="gradient-text" style="font-size: 2.4rem; font-weight: 700; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.8rem;">
+            <h3 class="gradient-text" style="font-size: 2.4rem; font-weight: 700; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.8rem;" data-i18n="rev_modal_title">
                 <i class='bx bx-message-square-edit'></i> Yorumunuzu Ekleyin
             </h3>
-            <p style="font-size: 1.4rem; color: #94a3b8; margin-bottom: 2rem;">
+            <p style="font-size: 1.4rem; color: #94a3b8; margin-bottom: 2rem;" data-i18n="rev_modal_desc">
                 Web tasarım, kamera kurulumu veya ağ altyapısı deneyiminizi paylaşın. Yorumunuz incelendikten sonra sitede yayınlanacaktır.
             </p>
 
             <form id="review-form">
                 <div class="review-input-group">
-                    <input type="text" id="review-name" placeholder="Adınız Soyadınız *" required>
-                    <input type="text" id="review-role" placeholder="Göreviniz / Hizmet (Örn: İşletme Sahibi - CCTV)" required>
+                    <input type="text" id="review-name" placeholder="Adınız Soyadınız *" data-i18n-placeholder="ph_name" required>
+                    <input type="text" id="review-role" placeholder="Göreviniz / Hizmet (Örn: İşletme Sahibi - CCTV)" data-i18n-placeholder="ph_review_role" required>
                 </div>
 
                 <div class="review-rating-box">
-                    <label style="font-size: 1.4rem; color: #cbd5e1; font-weight: 600;">Hizmet Puanınız:</label>
+                    <label style="font-size: 1.4rem; color: #cbd5e1; font-weight: 600;" data-i18n="rev_modal_rating">Hizmet Puanınız:</label>
                     <div class="star-rating-select" id="star-rating-select">
                         <i class='bx bxs-star active' data-val="1"></i>
                         <i class='bx bxs-star active' data-val="2"></i>
@@ -2094,13 +2095,13 @@ Ayrıca karmaşık ağ kabinlerini ve fiber altyapılarını profesyonel standar
                     <input type="hidden" id="review-rating-val" value="5">
                 </div>
 
-                <textarea id="review-comment" rows="4" placeholder="Deneyiminizi ve görüşlerinizi buraya yazın... *" required></textarea>
+                <textarea id="review-comment" rows="4" placeholder="Deneyiminizi ve görüşlerinizi buraya yazın... *" data-i18n-placeholder="ph_review_comment" required></textarea>
 
                 <div id="review-status-msg" style="display: none; font-size: 1.4rem; padding: 1.2rem; border-radius: 0.8rem; margin-top: 1.5rem; text-align: center;"></div>
 
                 <div style="display: flex; justify-content: flex-end; margin-top: 2rem;">
                     <button type="submit" class="btn" id="review-submit-btn" style="width: 100%;">
-                        <i class='bx bx-send'></i> Yorumu Gönder
+                        <i class='bx bx-send'></i> <span data-i18n="rev_modal_btn">Yorumu Gönder</span>
                     </button>
                 </div>
             </form>
@@ -2108,26 +2109,26 @@ Ayrıca karmaşık ağ kabinlerini ve fiber altyapılarını profesyonel standar
     </div>
 
     <section class="contact" id="contact">
-        <h2 class="heading">Bana <span class="gradient-text">Ulaşın</span></h2>
+        <h2 class="heading" data-i18n="contact_heading">Bana <span class="gradient-text">Ulaşın</span></h2>
         <form id="contact-form" class="reveal-on-scroll">
             <div class="input-box">
-                <input type="text" id="contact-name" name="name" placeholder="Adınız Soyadınız *" required>
-                <input type="email" id="contact-email" name="email" placeholder="E-posta Adresiniz *" required>
+                <input type="text" id="contact-name" name="name" placeholder="Adınız Soyadınız *" data-i18n-placeholder="ph_name" required>
+                <input type="email" id="contact-email" name="email" placeholder="E-posta Adresiniz *" data-i18n-placeholder="ph_email" required>
             </div>
             <div class="input-box">
-                <input type="tel" id="contact-phone" name="phone" placeholder="Telefon Numaranız (Opsiyonel)">
-                <input type="text" id="contact-subject" name="subject" placeholder="Konu (Örn: CCTV Kurulumu, Web Sitesi)">
+                <input type="tel" id="contact-phone" name="phone" placeholder="Telefon Numaranız (Opsiyonel)" data-i18n-placeholder="ph_phone">
+                <input type="text" id="contact-subject" name="subject" placeholder="Konu (Örn: CCTV Kurulumu, Web Sitesi)" data-i18n-placeholder="ph_subject">
             </div>
-            <textarea id="contact-message" name="message" cols="30" rows="7" placeholder="Projeniz veya ihtiyacınız hakkında detaylar... *" required></textarea>
+            <textarea id="contact-message" name="message" cols="30" rows="7" placeholder="Projeniz veya ihtiyacınız hakkında detaylar... *" data-i18n-placeholder="ph_message" required></textarea>
             
             <div id="contact-status-msg" style="display: none; font-size: 1.45rem; padding: 1.4rem; border-radius: 0.8rem; margin: 1.5rem 0; text-align: center;"></div>
             
             <div style="display: flex; justify-content: center; gap: 1.5rem; align-items: center; flex-wrap: wrap; margin-top: 1rem;">
                 <button type="submit" id="contact-submit-btn" class="btn">
-                    <i class='bx bx-send'></i> Mesajı Gönder
+                    <i class='bx bx-send'></i> <span data-i18n="contact_btn_send">Mesajı Gönder</span>
                 </button>
                 <a href="https://wa.me/905338849748?text=Merhaba%20Ak%C4%B1n%20Bey,%20web%20siteniz%20%C3%BCzerinden%20size%20ula%C5%9F%C4%B1yorum." target="_blank" class="btn btn-outline" style="border-color: #25D366; color: #25D366; background: rgba(37,211,102,0.08);">
-                    <i class='bx bxl-whatsapp'></i> WhatsApp'tan Yaz
+                    <i class='bx bxl-whatsapp'></i> <span data-i18n="contact_btn_wa">WhatsApp'tan Yaz</span>
                 </a>
             </div>
         </form>
@@ -2157,7 +2158,7 @@ Ayrıca karmaşık ağ kabinlerini ve fiber altyapılarını profesyonel standar
 
     <footer class="footer">
         <div class="footer-text">
-            <p>Copyright &copy; 2026 by Akın Topal | <strong>MAT Labs</strong> - Güvenlik Kamerası & Network Sistemleri | Tüm Hakları Saklıdır.</p>
+            <p data-i18n="footer_text">Copyright &copy; 2026 by Akın Topal | <strong>MAT Labs</strong> - Güvenlik Kamerası & Network Sistemleri | Tüm Hakları Saklıdır.</p>
         </div>
         <div class="footer-iconTop">
             <a href="#home"><i class='bx bx-up-arrow-alt'></i></a>
@@ -2175,19 +2176,39 @@ Ayrıca karmaşık ağ kabinlerini ve fiber altyapılarını profesyonel standar
         document.addEventListener('DOMContentLoaded', () => {
             // ==========================================
             const typingText = document.querySelector('.typing-text');
-            const words = [
-                "IT Specialist & Bilişim Uzmanıyım.",
-                "Güvenlik Kamerası (CCTV) Uzmanıyım.",
-                "Ağ Altyapısı & Network Teknisyeniyim.",
-                "Web Tasarım & Yazılım Geliştiricisiyim.",
-                "Sistem & Siber Güvenlik Yöneticisiyim."
-            ];
+            const typingPhrases = {
+                tr: [
+                    "IT Specialist & Bilişim Uzmanıyım.",
+                    "Güvenlik Kamerası (CCTV) Uzmanıyım.",
+                    "Ağ Altyapısı & Network Teknisyeniyim.",
+                    "Web Tasarım & Yazılım Geliştiricisiyim.",
+                    "Sistem & Siber Güvenlik Yöneticisiyim."
+                ],
+                en: [
+                    "an IT Specialist & Solutions Expert.",
+                    "a CCTV & Security Camera Expert.",
+                    "a Network Cabling Infrastructure Specialist.",
+                    "a Web Designer & Software Developer.",
+                    "a Systems & Cyber Security Admin."
+                ],
+                ru: [
+                    "IT-специалист и системный инженер.",
+                    "Специалист по системам видеонаблюдения.",
+                    "Сетевой инженер и монтажник СКС.",
+                    "Веб-дизайнер и разработчик.",
+                    "Администратор систем и безопасности."
+                ]
+            };
+            let currentTypingLang = localStorage.getItem('site_lang') || 'tr';
             let wordIndex = 0;
             let charIndex = 0;
             let isDeleting = false;
             let typeSpeed = 90;
+            let typingTimeoutId = null;
 
             function typeEffect() {
+                const words = typingPhrases[currentTypingLang] || typingPhrases.tr;
+                if (wordIndex >= words.length) wordIndex = 0;
                 const currentWord = words[wordIndex];
                 
                 if (isDeleting) {
@@ -2201,17 +2222,26 @@ Ayrıca karmaşık ağ kabinlerini ve fiber altyapılarını profesyonel standar
                 }
 
                 if (!isDeleting && charIndex === currentWord.length) {
-                    typeSpeed = 2200; // Kelime bittiğinde bekleme süresi
+                    typeSpeed = 2200;
                     isDeleting = true;
                 } else if (isDeleting && charIndex === 0) {
                     isDeleting = false;
                     wordIndex = (wordIndex + 1) % words.length;
-                    typeSpeed = 400; // Yeni kelimeye geçmeden önceki duraksama
+                    typeSpeed = 400;
                 }
 
-                setTimeout(typeEffect, typeSpeed);
+                typingTimeoutId = setTimeout(typeEffect, typeSpeed);
             }
             if (typingText) typeEffect();
+
+            window.switchTypingLanguage = function(lang) {
+                currentTypingLang = lang;
+                wordIndex = 0;
+                charIndex = 0;
+                isDeleting = false;
+                if (typingTimeoutId) clearTimeout(typingTimeoutId);
+                if (typingText) typeEffect();
+            };
 
 
             // ==========================================
@@ -2577,6 +2607,32 @@ Ayrıca karmaşık ağ kabinlerini ve fiber altyapılarını profesyonel standar
                     hero_desc: "KKTC genelinde modern web siteleri tasarlıyor, ev ve iş yerlerine yüksek çözünürlüklü güvenlik kamerası (CCTV) sistemleri kuruyor ve kurumsal ağ altyapılarını optimize ediyorum.",
                     hero_btn_calc: "Hızlı Bilgi Al",
                     hero_btn_contact: "İletişime Geç",
+                    badge_cyber_title: "Siber Güvenlik",
+                    badge_cyber_sub: "Ağ & Koruma",
+                    badge_web_title: "Web Tasarım",
+                    badge_web_sub: "Modern & Hızlı UI",
+                    badge_cctv_title: "7/24 Kamera",
+                    badge_cctv_sub: "Güvenlik Sistemleri",
+                    stat_exp: "Yıllık Deneyim",
+                    stat_proj: "Tamamlanan Proje",
+                    stat_sat: "Müşteri Memnuniyeti",
+                    stat_sup: "Güvenlik & Destek",
+                    about_heading: "Hakkımda <span class='gradient-text'>Ben Kimim?</span>",
+                    about_sub: "Sistemi kur, güvenliği sağla, dijitalde fark yarat!",
+                    about_p: "Web tasarımı, güvenlik kamerası kurulumu ve kurumsal ağ altyapısı alanlarında profesyonel hizmet sunuyorum. Modern, kullanıcı dostu ve SEO odaklı hızlı web siteleri geliştirirken; ev ve iş yerlerine yüksek çözünürlüklü IP/CCTV güvenlik kamerası sistemleri kurarak alanlarınızı 7/24 koruma altına alıyorum. Ayrıca karmaşık ağ kabinlerini ve fiber altyapılarını profesyonel standartlarda düzenleyerek kesintisiz ve güvenli bir dijital yapı inşa ediyorum.",
+                    about_btn: "Benimle İletişime Geç",
+                    edu_heading: "Kariyer <span class='gradient-text'>Yolculuğum</span>",
+                    edu_hs_tag: "Lise",
+                    edu_hs_title: "Ağ İşletmenliği ve Siber Güvenlik",
+                    edu_hs_school: "Mustafa Kemal Mesleki ve Teknik Anadolu Lisesi",
+                    edu_intern_tag: "Stajyer Teknisyen",
+                    edu_intern_desc: "Bilişim ve kamera sistemleri üzerine saha ve donanım deneyimi.",
+                    edu_uni_tag: "Üniversite",
+                    edu_uni_title: "Bilgisayar Programcılığı",
+                    edu_uni_school: "Doğu Akdeniz Üniversitesi",
+                    edu_job_tag: "IT Uzman Yardımcısı",
+                    edu_job_desc: "KKTC'nin köklü lüks yaşam projelerinde IT ve altyapı yönetimi.",
+                    edu_job_date: "2024 - Günümüz",
                     services_heading: "Neler <span class='gradient-text'>Yapıyorum?</span>",
                     service_web_title: "Web Tasarım & Geliştirme",
                     service_web_desc: "Her cihaza uyumlu (responsive), ultra hızlı ve SEO odaklı modern kurumsal web siteleri, portfolyolar ve açılış sayfaları (Landing Page) tasarlıyorum.",
@@ -2595,6 +2651,14 @@ Ayrıca karmaşık ağ kabinlerini ve fiber altyapılarını profesyonel standar
                     why_sec_title: "%100 Güvenlik & Gizlilik",
                     why_sec_desc: "Siber güvenlik standartlarına uygun, şifrelenmiş ve dış müdahalelere kapalı altyapılar kuruyorum.",
                     projects_heading: "Son <span class='gradient-text'>Projelerim</span>",
+                    proj_1_title: "Ağ Altyapısı Düzenleme",
+                    proj_1_sub: "Müşteri isteğine özel kabin öncesi ve sonrası",
+                    proj_2_title: "Fiber Optik ve Ağ Kabini",
+                    proj_2_sub: "Kurumsal Ağ Kabini Optimizasyonu",
+                    proj_3_title: "Yapısal Kablolama ve Altyapı",
+                    proj_3_sub: "Data Sistem Kabini Düzeni",
+                    proj_4_title: "IP Kamera Sistemi Kurulumu",
+                    proj_4_sub: "7/24 Kesintisiz Güvenlik Kamera Projesi",
                     calc_heading: "Hızlı <span class='gradient-text'>Proje & Bilgi Al</span>",
                     calc_subheading: "İhtiyacınıza Özel Çözümü Belirleyin",
                     calc_desc: "Hizmetinizi ve detayları seçin, projenizi doğrudan WhatsApp üzerinden ileterek ücretsiz keşif ve detaylı ön bilgi alın.",
@@ -2604,7 +2668,34 @@ Ayrıca karmaşık ağ kabinlerini ve fiber altyapılarını profesyonel standar
                     calc_step_title: "1. Proje Kapsamını Seçin:",
                     calc_status_title: "Hizmet Kapsamı & Süreç:",
                     calc_btn: "WhatsApp'tan Bilgi & Keşif İste",
-                    scope_text: "Ücretsiz Keşif & Özel Projelendirme"
+                    scope_text: "Ücretsiz Keşif & Özel Projelendirme",
+                    test_heading: "Müşteri <span class='gradient-text'>Değerlendirmeleri</span>",
+                    test_sub: "Gerçek müşteri deneyimleri ve tamamlanan projeler",
+                    test_btn_write: "Yorum Yaz",
+                    test_rev1: "\"Ofisimizin tüm güvenlik kamerası ve ağ altyapısını Akın Bey kurdu. Kablolar o kadar temiz çekildi ki hiçbir dağınıklık kalmadı. 7/24 telefonumuzdan izleyebiliyoruz. Eline sağlık!\"",
+                    test_role1: "İşletme Sahibi - CCTV & Ağ Projesi",
+                    test_rev2: "\"Kurumsal web sitemizi sıfırdan hazırladı. Hem mobilde çok hızlı açılıyor hem de tasarımı tam istediğimiz gibi modern oldu. Google'dan müşteri dönüşlerimiz hissedilir şekilde arttı.\"",
+                    test_role2: "Pazarlama Direktörü - Web Tasarımı",
+                    test_rev3: "\"Veri kabinimizdeki karmaşık kablolar yüzünden sürekli internet kesintisi yaşıyorduk. Patch panelleri baştan etiketleyip düzenledi, sistem saat gibi çalışıyor. Kesinlikle tavsiye ederim.\"",
+                    test_role3: "Teknik Müdür - Ağ Kabini Optimizasyonu",
+                    test_rev4: "\"İş yerimizin kamera sistemi ve network altyapısını sorunsuz teslim etti. İlgi ve profesyonel yaklaşımı için çok teşekkür ederiz.\"",
+                    test_role4: "Restoran Müdürü - IP Kamera & Ağ",
+                    test_google_btn: "<strong style='color: #FFB800; font-size: 1.75rem;'>5.0 ★★★★★</strong> Google Haritalar'da İncele & Yorum Yap | <span class='gradient-text'>MAT Labs</span>",
+                    rev_modal_title: "<i class='bx bx-message-square-edit'></i> Yorumunuzu Ekleyin",
+                    rev_modal_desc: "Web tasarım, kamera kurulumu veya ağ altyapısı deneyiminizi paylaşın. Yorumunuz incelendikten sonra sitede yayınlanacaktır.",
+                    rev_modal_rating: "Hizmet Puanınız:",
+                    rev_modal_btn: "Yorumu Gönder",
+                    contact_heading: "Bana <span class='gradient-text'>Ulaşın</span>",
+                    contact_btn_send: "Mesajı Gönder",
+                    contact_btn_wa: "WhatsApp'tan Yaz",
+                    footer_text: "Copyright &copy; 2026 by Akın Topal | <strong>MAT Labs</strong> - Güvenlik Kamerası & Network Sistemleri | Tüm Hakları Saklıdır.",
+                    ph_name: "Adınız Soyadınız *",
+                    ph_email: "E-posta Adresiniz *",
+                    ph_phone: "Telefon Numaranız (Opsiyonel)",
+                    ph_subject: "Konu (Örn: CCTV Kurulumu, Web Sitesi)",
+                    ph_message: "Projeniz veya ihtiyacınız hakkında detaylar... *",
+                    ph_review_role: "Göreviniz / Hizmet (Örn: İşletme Sahibi - CCTV)",
+                    ph_review_comment: "Deneyiminizi ve görüşlerinizi buraya yazın... *"
                 },
                 en: {
                     nav_home: "Home", nav_about: "About", nav_services: "Services",
@@ -2616,6 +2707,32 @@ Ayrıca karmaşık ağ kabinlerini ve fiber altyapılarını profesyonel standar
                     hero_desc: "Designing modern websites, installing high-resolution CCTV security cameras, and optimizing enterprise network cabling infrastructure across North Cyprus.",
                     hero_btn_calc: "Get Quick Info",
                     hero_btn_contact: "Contact Me",
+                    badge_cyber_title: "Cyber Security",
+                    badge_cyber_sub: "Network & Defense",
+                    badge_web_title: "Web Design",
+                    badge_web_sub: "Modern & Fast UI",
+                    badge_cctv_title: "24/7 Cameras",
+                    badge_cctv_sub: "Security Systems",
+                    stat_exp: "Years Experience",
+                    stat_proj: "Completed Projects",
+                    stat_sat: "Client Satisfaction",
+                    stat_sup: "Security & Support",
+                    about_heading: "About <span class='gradient-text'>Who Am I?</span>",
+                    about_sub: "Build the system, ensure security, create digital impact!",
+                    about_p: "I provide professional engineering services in web development, CCTV security camera deployment, and enterprise network infrastructure. I build fast, responsive, and SEO-oriented corporate websites; protect properties 24/7 with high-resolution IP surveillance cameras; and optimize complex server rack cabinets and fiber cabling for seamless uptime.",
+                    about_btn: "Get in Touch with Me",
+                    edu_heading: "Career <span class='gradient-text'>Journey</span>",
+                    edu_hs_tag: "High School",
+                    edu_hs_title: "Network Administration & Cyber Security",
+                    edu_hs_school: "Mustafa Kemal Vocational & Technical Anatolian High School",
+                    edu_intern_tag: "Intern Technician",
+                    edu_intern_desc: "Field and hardware experience on IT and CCTV surveillance systems.",
+                    edu_uni_tag: "University",
+                    edu_uni_title: "Computer Programming",
+                    edu_uni_school: "Eastern Mediterranean University",
+                    edu_job_tag: "IT Assistant Specialist",
+                    edu_job_desc: "IT infrastructure & systems management in luxury living projects across North Cyprus.",
+                    edu_job_date: "2024 - Present",
                     services_heading: "What I <span class='gradient-text'>Do?</span>",
                     service_web_title: "Web Design & Development",
                     service_web_desc: "Building responsive, ultra-fast and SEO-oriented corporate websites, portfolios, and high-conversion landing pages.",
@@ -2634,6 +2751,14 @@ Ayrıca karmaşık ağ kabinlerini ve fiber altyapılarını profesyonel standar
                     why_sec_title: "100% Security & Privacy",
                     why_sec_desc: "Setting up hardened, encrypted infrastructures compliant with cybersecurity standards.",
                     projects_heading: "Recent <span class='gradient-text'>Projects</span>",
+                    proj_1_title: "Network Infrastructure Cleanup",
+                    proj_1_sub: "Custom server rack cabinet before & after",
+                    proj_2_title: "Fiber Optic & Server Rack",
+                    proj_2_sub: "Enterprise Network Cabinet Optimization",
+                    proj_3_title: "Structured Cabling & Infrastructure",
+                    proj_3_sub: "Data Systems Rack Organization",
+                    proj_4_title: "IP Camera Security Installation",
+                    proj_4_sub: "24/7 Uninterrupted Security Camera Project",
                     calc_heading: "Quick <span class='gradient-text'>Project & Consultation</span>",
                     calc_subheading: "Define the Right Solution for Your Needs",
                     calc_desc: "Select the service scope you need and forward your project details via WhatsApp for a free survey and preliminary briefing.",
@@ -2643,7 +2768,34 @@ Ayrıca karmaşık ağ kabinlerini ve fiber altyapılarını profesyonel standar
                     calc_step_title: "1. Select Project Scope:",
                     calc_status_title: "Service Format & Process:",
                     calc_btn: "Request Info & Free Survey via WhatsApp",
-                    scope_text: "Free Site Survey & Custom Planning"
+                    scope_text: "Free Site Survey & Custom Planning",
+                    test_heading: "Client <span class='gradient-text'>Testimonials</span>",
+                    test_sub: "Real client experiences and completed projects",
+                    test_btn_write: "Write Review",
+                    test_rev1: "\"Akin installed all CCTV and network infrastructure for our office. Cables are exceptionally tidy with zero mess. We can watch live 24/7 from our phones. Great work!\"",
+                    test_role1: "Business Owner - CCTV & Network Project",
+                    test_rev2: "\"He built our corporate website from scratch. It loads ultra-fast on mobile and looks super modern. Our customer inquiries from Google noticeably increased.\"",
+                    test_role2: "Marketing Director - Web Design",
+                    test_rev3: "\"We had constant internet drops due to messy cabling in our data rack. He labeled patch panels and organized everything; the network runs like clockwork now.\"",
+                    test_role3: "Technical Manager - Server Rack Optimization",
+                    test_rev4: "\"Delivered our camera system and network flawlessly. Thank you very much for your attentive and professional approach.\"",
+                    test_role4: "Restaurant Manager - IP Camera & Network",
+                    test_google_btn: "<strong style='color: #FFB800; font-size: 1.75rem;'>5.0 ★★★★★</strong> View & Review on Google Maps | <span class='gradient-text'>MAT Labs</span>",
+                    rev_modal_title: "<i class='bx bx-message-square-edit'></i> Add Your Review",
+                    rev_modal_desc: "Share your experience with our web design, CCTV, or network cabling services. Your review will be published after verification.",
+                    rev_modal_rating: "Service Rating:",
+                    rev_modal_btn: "Submit Review",
+                    contact_heading: "Contact <span class='gradient-text'>Me</span>",
+                    contact_btn_send: "Send Message",
+                    contact_btn_wa: "Chat on WhatsApp",
+                    footer_text: "Copyright &copy; 2026 by Akin Topal | <strong>MAT Labs</strong> - CCTV & Network Systems | All Rights Reserved.",
+                    ph_name: "Full Name *",
+                    ph_email: "Email Address *",
+                    ph_phone: "Phone Number (Optional)",
+                    ph_subject: "Subject (e.g. CCTV Setup, Website)",
+                    ph_message: "Details about your project or inquiry... *",
+                    ph_review_role: "Your Role / Service (e.g. Business Owner - CCTV)",
+                    ph_review_comment: "Write your feedback and experience here... *"
                 },
                 ru: {
                     nav_home: "Главная", nav_about: "Обо мне", nav_services: "Услуги",
@@ -2655,6 +2807,32 @@ Ayrıca karmaşık ağ kabinlerini ve fiber altyapılarını profesyonel standar
                     hero_desc: "Разработка современных веб-сайтов, монтаж систем IP/CCTV видеонаблюдения и проектирование структурированных сетей по всему Северному Кипру.",
                     hero_btn_calc: "Узнать подробнее",
                     hero_btn_contact: "Связаться",
+                    badge_cyber_title: "Безопасность",
+                    badge_cyber_sub: "Защита сетей",
+                    badge_web_title: "Веб-дизайн",
+                    badge_web_sub: "Быстрый UI/UX",
+                    badge_cctv_title: "Камеры 24/7",
+                    badge_cctv_sub: "Видеонаблюдение",
+                    stat_exp: "Лет опыта",
+                    stat_proj: "Завершенных проектов",
+                    stat_sat: "Довольных клиентов",
+                    stat_sup: "Поддержка 24/7",
+                    about_heading: "Обо мне <span class='gradient-text'>Кто я?</span>",
+                    about_sub: "Настройка систем, надежная безопасность, цифровые инновации!",
+                    about_p: "Предоставляю профессиональные услуги по веб-разработке, монтажу систем видеонаблюдения IP/CCTV и оптимизации корпоративных локальных сетей. Создаю быстрые и адаптивные сайты, защищаю жилые и коммерческие объекты с круглосуточным онлайн-доступом, а также структурирую серверные стойки и оптические линии связи.",
+                    about_btn: "Связаться со мной",
+                    edu_heading: "Карьерный <span class='gradient-text'>Путь</span>",
+                    edu_hs_tag: "Колледж",
+                    edu_hs_title: "Сетевое администрирование и кибербезопасность",
+                    edu_hs_school: "Анатолийский профессионально-технический лицей им. Мустафы Кемаля",
+                    edu_intern_tag: "Техник-стажер",
+                    edu_intern_desc: "Практический опыт настройки сетевого оборудования и систем видеонаблюдения.",
+                    edu_uni_tag: "Университет",
+                    edu_uni_title: "Компьютерное программирование",
+                    edu_uni_school: "Восточно-Средиземноморский университет (DAÜ)",
+                    edu_job_tag: "Помощник IT-специалиста",
+                    edu_job_desc: "Управление IT-инфраструктурой в масштабных проектах элитной недвижимости на Северном Кипре.",
+                    edu_job_date: "2024 - Настоящее время",
                     services_heading: "Мои <span class='gradient-text'>Услуги</span>",
                     service_web_title: "Веб-дизайн и разработка",
                     service_web_desc: "Создание адаптивных, сверхбыстрых и оптимизированных под поисковые системы корпоративных сайтов и лендингов.",
@@ -2673,6 +2851,14 @@ Ayrıca karmaşık ağ kabinlerini ve fiber altyapılarını profesyonel standar
                     why_sec_title: "100% Защита и конфиденциальность",
                     why_sec_desc: "Надежные зашифрованные конфигурации с соблюдением стандартов кибербезопасности.",
                     projects_heading: "Последние <span class='gradient-text'>Проекты</span>",
+                    proj_1_title: "Реорганизация серверного шкафа",
+                    proj_1_sub: "Индивидуальный проект структурирования стойки",
+                    proj_2_title: "Оптоволокно и серверная стойка",
+                    proj_2_sub: "Оптимизация корпоративного коммутационного узла",
+                    proj_3_title: "Структурированные кабельные сети",
+                    proj_3_sub: "Организация и монтаж патч-панелей",
+                    proj_4_title: "Монтаж IP-видеонаблюдения",
+                    proj_4_sub: "Проект бесперебойного видеонаблюдения 24/7",
                     calc_heading: "Быстрая <span class='gradient-text'>Консультация</span>",
                     calc_subheading: "Подберите индивидуальное решение для вашего объекта",
                     calc_desc: "Выберите категорию и отправьте детали в WhatsApp для получения бесплатной консультации и выезда на объект.",
@@ -2682,7 +2868,34 @@ Ayrıca karmaşık ağ kabinlerini ve fiber altyapılarını profesyonel standar
                     calc_step_title: "1. Выберите категорию проекта:",
                     calc_status_title: "Формат работы:",
                     calc_btn: "Запросить консультацию в WhatsApp",
-                    scope_text: "Бесплатный выезд на объект и расчет"
+                    scope_text: "Бесплатный выезд на объект и расчет",
+                    test_heading: "Отзывы <span class='gradient-text'>Клиентов</span>",
+                    test_sub: "Реальный опыт заказчиков и завершенные проекты",
+                    test_btn_write: "Оставить отзыв",
+                    test_rev1: "\"Акын установил систему видеонаблюдения и сеть для нашего офиса. Все провода проложены идеально чисто. Смотрим онлайн с телефона 24/7. Отличная работа!\"",
+                    test_role1: "Владелец бизнеса - Проект CCTV и сети",
+                    test_rev2: "\"Разработал наш корпоративный сайт с нуля. Быстро открывается на смартфонах и выглядит стильно. Заявок из Google стало заметно больше.\"",
+                    test_role2: "Директор по маркетингу - Веб-дизайн",
+                    test_rev3: "\"Из-за хаоса в серверном шкафу часто пропадал интернет. Акын промаркировал и перекоммутировал патч-панели, теперь всё работает как часы.\"",
+                    test_role3: "Технический директор - Оптимизация шкафа",
+                    test_rev4: "\"Сдал объект по видеонаблюдению и сети точно в срок и без нареканий. Спасибо за профессионализм и надежность.\"",
+                    test_role4: "Управляющий рестораном - IP-камеры и сеть",
+                    test_google_btn: "<strong style='color: #FFB800; font-size: 1.75rem;'>5.0 ★★★★★</strong> Смотреть и оценить на Google Maps | <span class='gradient-text'>MAT Labs</span>",
+                    rev_modal_title: "<i class='bx bx-message-square-edit'></i> Оставить отзыв",
+                    rev_modal_desc: "Поделитесь впечатлениями о разработке сайта, монтаже камер или настройке сети. Отзыв появится на сайте после модерации.",
+                    rev_modal_rating: "Ваша оценка:",
+                    rev_modal_btn: "Отправить отзыв",
+                    contact_heading: "Связаться <span class='gradient-text'>со мной</span>",
+                    contact_btn_send: "Отправить сообщение",
+                    contact_btn_wa: "Написать в WhatsApp",
+                    footer_text: "Copyright &copy; 2026 by Akin Topal | <strong>MAT Labs</strong> - Видеонаблюдение и Сетевые Системы | Все права защищены.",
+                    ph_name: "Ваше имя *",
+                    ph_email: "Ваш Email *",
+                    ph_phone: "Номер телефона (необязательно)",
+                    ph_subject: "Тема (напр. Установка камер, сайт)",
+                    ph_message: "Опишите ваш проект или задачу... *",
+                    ph_review_role: "Должность / Услуга (напр. Владелец бизнеса - CCTV)",
+                    ph_review_comment: "Напишите ваши впечатления и отзыв... *"
                 }
             };
 
@@ -2883,6 +3096,17 @@ Ayrıca karmaşık ağ kabinlerini ve fiber altyapılarını profesyonel standar
                         el.innerHTML = translations[lang][key];
                     }
                 });
+
+                document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                    const key = el.getAttribute('data-i18n-placeholder');
+                    if (translations[lang] && translations[lang][key]) {
+                        el.setAttribute('placeholder', translations[lang][key]);
+                    }
+                });
+
+                if (typeof window.switchTypingLanguage === 'function') {
+                    window.switchTypingLanguage(lang);
+                }
 
                 updateCalculatorUI();
             }
